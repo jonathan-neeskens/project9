@@ -30,9 +30,10 @@ body{
 /* Menu */
 .menu{
     text-align: center;
+    margin-top: 20px;
 }
 
-i{
+.menu_item i{
     padding: 50px;
     margin: 30px;
     margin-left: 50px;
@@ -43,6 +44,7 @@ i{
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
+
 i:hover{
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -51,15 +53,56 @@ i:hover{
 /* Tables */
 .table{
     height: 200px;
-    width: 33%;
+    width: 25%;
+    color: #FFF;
+    margin: 50px;
 }
 
 .table-top{
     height: 60%;
+    width: 100%;
     background: #795548;
+    text-align: bottom;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-right: 5px solid #5d4037;
+}
+
+.table-top h1{
+    padding-left: 15px;
+    padding-top: 75px;
 }
 
 .table-bottom{
     height: 40%;
+    width: 100%;
     background: #5d4037;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.table-bottom p{
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.table-bottom i{
+    hot
+}
+
+/* overig */
+.addbutton i{
+    position: absolute;
+    right: 100px;
+    bottom: 40px;
+    width: 100px;
+    height: 100px;
+    font-family: "Roboto Th";
+    color: #FFF;
+    padding: 15px;
+    font-size: 60px;
+    border-radius: 50%;
+    background-color: #9c27b0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }

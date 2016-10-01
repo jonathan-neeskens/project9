@@ -29,7 +29,16 @@
         </div>
         <div class="canvas bit-90">
             <div class="table">
-                <h1> Tafel 1 </h1>
+                <div class="table-top">
+                    <h1> Tafel 1 </h1>
+                </div>
+                <div class="table-bottom">
+                    <p>3/4 personen</p>
+                </div>
+            </div>
+
+            <div class="addbutton">
+                <i> + </i>
             </div>
         </div>
     </body>
