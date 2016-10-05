@@ -25,7 +25,7 @@ function customer_list(){
                 <img src='img/customer.png'>
             </div>
             <h3> " .$row1['name']. " </h3>
-            <a href='#'>
+            <a href='edit_customer.php?id=".$row1['id']."'>
                 <i class='fa fa-pencil'></i>
             </a>
         </div>
