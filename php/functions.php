@@ -31,5 +31,25 @@ function customer_list(){
         </div>
         ";
     }
+}
+
+function table_list(){
+    global $link;
+    $query1 = mysqli_query($link, "SELECT * FROM tables");
+
+    while($row1 = mysqli_fetch_assoc($query1)) {
+        echo "
+        <div class='table_wrapper'>
+            <div class='table'>
+                <div class='table-top'>
+                    <h1> Tafel " . $row1['table_nr'] . " </h1>
+                </div>
+                <div class='table-bottom'>
+                    <p><strong>3</strong><light>/4 personen</light></p>
+                </div>
+            </div>
+        </div>
+        ";
+    }
 
 }

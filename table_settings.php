@@ -1,7 +1,11 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Jonathan
- * Date: 5-10-2016
- * Time: 11:57
- */
+<?php include "includes/head.php" ?>
+<body>
+<?php include "includes/menu.php" ?>
+<div class="canvas bit-90">
+
+    <div class="innerCanvas">
+    </div>
+
+</div>
+</body>
+</html>

@@ -92,7 +92,6 @@ i:hover{
 .canvas{
     margin-top: 75px;
     margin-left: 250px;
-    padding-right: 300px;
     height: calc(100% - 75px);
     width: 75%!important;
 }
@@ -121,7 +120,7 @@ i:hover{
 }
 
 .table_wrapper{
-    height: 250px;
+    height: 275px;
     width: 33.3333%;
     padding-right: 50px;
     padding-bottom: 50px;
