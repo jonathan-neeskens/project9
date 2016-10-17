@@ -3,6 +3,26 @@ html, body{
     height: 100%;
 }
 
+
+
+::-webkit-input-placeholder {
+    font-size: 20px;
+    font-family: Roboto!important;
+    font-weight: 200;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    font-size: 20px;
+    font-family: Roboto!important;
+    font-weight: 200;
+}
+
+:-ms-input-placeholder {
+    font-size: 20px;
+    font-family: Roboto!important;
+    font-weight: 200;
+}
+
 *{
     font-family: Roboto, SansSerif;
 }
@@ -22,6 +42,18 @@ body{
     -webkit-touch-callout: none;
 }
 
+.fa-search{
+    position: absolute;
+    top: 105px;
+    margin-left: 30px;
+    color: #a6a6a6;
+}
+
+.fa-search:hover{
+    box-shadow: none!important;
+    cursor: default;
+}
+
 .bit-10, .bit-90{
     height: 100%;
 }
@@ -36,13 +68,16 @@ body{
 }
 
 .menu_item i{
-    padding: 50px;
     margin: 30px;
     margin-left: 50px;
-    color: #FFF;
-    font-size: 40px;
-    border-radius: 50%;
     background-color: #9c27b0;
+    text-align: center;
+    width: 130px;
+    height: 130px;
+    color: #FFF;
+    padding: 37.5px;
+    font-size: 50px;
+    border-radius: 50%;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
@@ -79,6 +114,7 @@ i:hover{
 .list_item a{
     color: #a6a6a6;
     float: right;
+    font-size: 25px;
     margin: 70px;
     margin-right: 100px;
 }
@@ -103,7 +139,79 @@ i:hover{
     margin-top: 20px;
 }
 
+.inside_innerCanvas{
+    margin-left: 70px;
+}
+
+.printbutton{
+    text-align: center;
+    margin-right: 25px;
+    margin-top: -15px;
+    font-family: "Roboto Th";
+    color: #FFF;
+    padding: 25px;
+    font-size: 25px;
+    float: right;
+    border-radius: 50%;
+    background-color: #3ea959;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.printbutton i:hover{
+    box-shadow: none!important;
+}
+
+.innerCanvas form input{
+    margin-bottom: 20px;
+    width: 40%;
+    padding: 20px;
+    font-size: 20px;
+    font-family: Roboto!important;
+    font-weight: 200;
+
+    background: #f9f9f9;
+    border: none;
+}
+
+.innerCanvas h2{
+    margin-bottom: 50px;
+}
+
+.innerCanvas form input:focus{
+    border_bottom: 2px solid #9c27b0;
+}
+
+.innerCanvas .fa-arrow-left{
+    border: none;
+    background: #FFF;
+    margin: 30px;
+}
+
+.innerCanvas .fa-floppy-o{
+    float: right;
+    margin: 30px;
+}
+
+.innerCanvas .fa-floppy-o:hover{
+    color: #3ea959;
+}
+
+.innerCanvas i{
+    color: #a6a6a6;
+}
+
+.innerCanvas button:hover {
+    opacity: 0.6;
+}
+
+.innerCanvas i:hover{
+    box-shadow: none!important;
+}
+
 .searchField{
+    font-size: 20px;
+    font-family: Roboto!important;
+    font-weight: 200;
     width: 100%;
     padding: 30px;
     height: 10%;
@@ -164,22 +272,37 @@ i:hover{
     display: block!important;
 }
 
+.popup{
+    display: none;
+}
+
+.popup.visible{
+    display: block!important;
+}
+
 /* overig */
 .addbutton i{
     position: fixed;
     text-align: center;
     right: 15%;
     bottom: 40px;
-    width: 100px;
-    height: 100px;
-    font-family: "Roboto Th";
+    width: 125px;
+    height: 125px;
+    font-family: "Roboto Lt";
+    font-style: normal;
     color: #FFF;
-    padding: 15px;
+    padding: 25px;
     font-size: 60px;
     border-radius: 50%;
     background-color: #3ea959;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
+
+.addbutton i:hover {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
 
 .fa-cog{
     position: fixed;

@@ -12,6 +12,72 @@ function search($page){
    // echo $page;
 }
 
+function create_user($name, $adress, $city, $mail, $phone){
+    global $link;
+    $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$adress', '$city', '$mail', '$phone')");
+    header("Location: customers.php?add=succes");
+}
+
+function change_user($id, $name, $adress, $city, $mail, $phone){
+    global $link;
+    $query = mysqli_query($link, "UPDATE `customer` SET `name` = '$name', `adress` = '$adress', `city` = '$city', `mail` = '$mail', `phone` = '$phone' WHERE `id` = '$id'");
+    header("Location: customers.php?change=success");
+}
+
+function get_receipt($table_id){
+    echo $table_id;
+}
+
+function create_menu($name, $price){
+    global $link;
+    $query = mysqli_query($link, "INSERT INTO `menu` VALUES (NULL, '$name', '$price', '1')");
+    header("Location: menus.php?add=succes");
+}
+
+function table_list(){
+    global $link;
+    $query1 = mysqli_query($link, "SELECT * FROM tables");
+
+    while($row1 = mysqli_fetch_assoc($query1)) {
+        echo "
+        <div class='table_wrapper'>
+            <div class='table'>
+                <div class='table-top'>
+                    <h1> Tafel " . $row1['table_nr'] . " </h1>
+                    <a class='printbutton' href='index.php?receipt_id=".$row1['id']."'>
+                        <i class='fa fa-print'></i>
+                    </a>
+                </div>
+                <div class='table-bottom'>
+                    <p><strong>3</strong><light>/4 personen</light></p>
+                </div>
+            </div>
+        </div>
+        ";
+    }
+}
+
+function table_list_2(){
+    global $link;
+
+    $query1 = mysqli_query($link, "SELECT * FROM tables");
+
+    while($row1 = mysqli_fetch_assoc($query1)){
+
+        echo "
+        <div class='list_item'>
+            <div class='user_pic'>
+                <img src='img/table.png'>
+            </div>
+            <h3> Tafel " .$row1['table_nr']. " </h3>
+            <a href='edit_table.php?id=".$row1['id']."'>
+                <i class='fa fa-pencil'></i>
+            </a>
+        </div>
+        ";
+    }
+}
+
 function customer_list(){
     global $link;
 
@@ -33,23 +99,42 @@ function customer_list(){
     }
 }
 
-function table_list(){
+function reservation_list(){
     global $link;
-    $query1 = mysqli_query($link, "SELECT * FROM tables");
+    $query1 = mysqli_query($link, "SELECT * FROM reservation");
 
-    while($row1 = mysqli_fetch_assoc($query1)) {
+    while($row1 = mysqli_fetch_assoc($query1)){
+
         echo "
-        <div class='table_wrapper'>
-            <div class='table'>
-                <div class='table-top'>
-                    <h1> Tafel " . $row1['table_nr'] . " </h1>
-                </div>
-                <div class='table-bottom'>
-                    <p><strong>3</strong><light>/4 personen</light></p>
-                </div>
+        <div class='list_item'>
+            <div class='user_pic'>
+                <img src='img/customer.png'>
             </div>
+            <h3> " .$row1['name']. " </h3>
+            <a href='edit_reservation.php?id=".$row1['id']."'>
+                <i class='fa fa-pencil'></i>
+            </a>
         </div>
         ";
     }
+}
 
+function menu_list(){
+    global $link;
+    $query1 = mysqli_query($link, "SELECT * FROM menu");
+
+    while($row1 = mysqli_fetch_assoc($query1)){
+
+        echo "
+        <div class='list_item'>
+            <div class='user_pic'>
+                <img src='img/menu.png'>
+            </div>
+            <h3> " .$row1['name']. " </h3>
+            <a href='edit_menu.php?id=".$row1['id']."'>
+                <i class='fa fa-pencil'></i>
+            </a>
+        </div>
+        ";
+    }
 }
