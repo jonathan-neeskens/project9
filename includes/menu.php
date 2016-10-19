@@ -9,7 +9,7 @@
     </a>
 
     <a href="menus.php" class="menu_item">
-        <i class="fa fa-list-alt fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
     </a>
 
     <a href="reservations.php" class="menu_item">

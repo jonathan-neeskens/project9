@@ -18,6 +18,11 @@
             alert('Toevoegen van menu was succesvol. Dit bericht moet binnenkort veranderd worden in een pop-up.');
             //addclass 'zichtbaar' aan <div class='popup'>
         }
+
+        else if (window.location.href.indexOf("change=success") != -1){
+            alert('Aanpassen van menu was succesvol. Dit bericht moet binnenkort veranderd worden in een pop-up.');
+            //addclass 'zichtbaar' aan <div class='popup'>
+        }
     </script>
 </div>
 </body>

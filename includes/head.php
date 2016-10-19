@@ -4,6 +4,7 @@
 ?>
 <html>
 <head>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
     <title>Bon Temps</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/lemonade.css">

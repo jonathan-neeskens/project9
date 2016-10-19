@@ -6,7 +6,9 @@
     <div class="innerCanvas">
         <?php table_list_2(); ?>
     </div>
-
+    <a href="add_table.php" class="addbutton">
+        <i> + </i>
+    </a>
 </div>
 </body>
 </html>

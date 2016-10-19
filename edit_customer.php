@@ -13,6 +13,10 @@
                     change_user($_GET['id'], $_POST['name'], $_POST['adress'], $_POST['city'], $_POST['mail'], $_POST['phone']);
                 }
 
+                elseif(isset($_POST["delete"])){
+                    delete_user($_GET['id']);
+                }
+
                 $query1 = mysqli_query($link, "SELECT * FROM customer WHERE id = $_GET[id]");
                 $row1 = mysqli_fetch_assoc($query1)
 
@@ -24,7 +28,8 @@
                     <input type="text" required name="city" value="<?php echo $row1['city'] ?>"><br>
                     <input type="email" required name="mail" value="<?php echo $row1['mail'] ?>"><br>
                     <input type="tel" required name="phone" value="<?php echo $row1['phone'] ?>"><br>
-                    <input type="submit" name="change" value="Wijzigingen opslaan (Tijdelijke knop)">
+                    <input type="submit" name="change" value="Wijzigingen opslaan (Tijdelijke knop)"> <br>
+                    <input type="submit" class="delete" name="delete" value="Gebruiker verwijderen (tijdelijke knop)">
                 </form>
             </div>
         </div>

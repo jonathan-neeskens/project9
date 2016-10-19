@@ -12,11 +12,31 @@ function search($page){
    // echo $page;
 }
 
-function create_user($name, $adress, $city, $mail, $phone){
+function create_user($role, $name, $adress, $city, $mail, $phone){
     global $link;
-    $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$adress', '$city', '$mail', '$phone')");
-    header("Location: customers.php?add=succes");
+    if ($role == 'create_user') {
+        $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$adress', '$city', '$mail', '$phone')");
+        header("Location: customers.php?add=succes");
+    }
+
+    elseif ($role == 'create_user_reservation') {
+        $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$adress', '$city', '$mail', '$phone')");
+        header("Location: add_reservation.php?added=success");
+       }
 }
+
+function check_tables($date, $time){
+    global $link;
+    //echo "SELECT * FROM `reservation` WHERE `date` = '".$date."' AND `start` = '".$time."'";
+
+
+    $query = mysqli_query($link, "SELECT * FROM `reservation` WHERE `date` = '".$date."' AND `start` = '".$time."'");
+    while($row = mysqli_fetch_assoc($query)) {
+        $query = mysqli_query($link, "SELECT * FROM `tables` WHERE `id` != '".$row['table_id']."'");
+    }
+
+}
+
 
 function change_user($id, $name, $adress, $city, $mail, $phone){
     global $link;
@@ -119,6 +139,12 @@ function reservation_list(){
     }
 }
 
+function change_menu($id, $name, $price){
+    global $link;
+    $query = mysqli_query($link, "UPDATE `menu` SET `name` = '$name', `price` = '$price' WHERE `id` = '$id'");
+    header("Location: menus.php?change=success");
+}
+
 function menu_list(){
     global $link;
     $query1 = mysqli_query($link, "SELECT * FROM menu");
@@ -137,4 +163,16 @@ function menu_list(){
         </div>
         ";
     }
+}
+
+function delete_user($id){
+    global $link;
+    $query = mysqli_query($link, "DELETE FROM `customer` WHERE `id` = ".$id."");
+    header("Location: customers.php?delete=success");
+}
+
+function create_table($nr){
+    global $link;
+    $query = mysqli_query($link, "INSERT INTO `tables` VALUES (NULL, '$nr', '1')");
+    header("Location: table_settings.php?add=success");
 }

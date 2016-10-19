@@ -3,7 +3,12 @@ html, body{
     height: 100%;
 }
 
-
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 
 ::-webkit-input-placeholder {
     font-size: 20px;
@@ -33,13 +38,14 @@ h1{
 
 body{
     background-color: #f9f9f9;
-
+/*
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-touch-callout: none;
+    */
 }
 
 .fa-search{
@@ -161,7 +167,19 @@ i:hover{
     box-shadow: none!important;
 }
 
-.innerCanvas form input{
+select.invisible{
+    display: none!important;
+}
+
+.create_user{
+    display: none;
+}
+
+.create_user.visible{
+    display: block!important;
+}
+
+.innerCanvas form input, select{
     margin-bottom: 20px;
     width: 40%;
     padding: 20px;
@@ -178,7 +196,7 @@ i:hover{
 }
 
 .innerCanvas form input:focus{
-    border_bottom: 2px solid #9c27b0;
+    border-bottom: 3px solid #9c27b0;
 }
 
 .innerCanvas .fa-arrow-left{
@@ -281,6 +299,47 @@ i:hover{
 }
 
 /* overig */
+.popup{
+    text-align: left;
+    padding: 15px;
+    z-index: 200;
+    float: left;
+    position: fixed;
+    height: auto;
+    min-height: 200px;
+    width: 20%;
+    background: #FFF;
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+.layer{
+    display: none;
+}
+
+.layer.visible{
+    z-index: 100;
+    display: block!important;
+    left: 0;
+    right: 0;
+    float: left;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.6;
+}
+
+input[type="submit"] {
+    background: forestgreen!important;
+    color: #FFF;
+}
+
+input[type="submit"].delete {
+    background: red!important;
+    color: #FFF;
+}
+
 .addbutton i{
     position: fixed;
     text-align: center;
