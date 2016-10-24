@@ -11,29 +11,39 @@ button:focus {
 }
 
 ::-webkit-input-placeholder {
-    font-size: 20px;
+    font-size: 22px;
     font-family: Roboto!important;
     font-weight: 200;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-    font-size: 20px;
+    font-size: 22px;
     font-family: Roboto!important;
     font-weight: 200;
 }
 
 :-ms-input-placeholder {
-    font-size: 20px;
+    font-size: 22px;
     font-family: Roboto!important;
     font-weight: 200;
 }
 
 *{
     font-family: Roboto, SansSerif;
+    font-size: 22px;
+}
+
+h3{
+    font-size: 22px;
+}
+
+h2{
+    font-size: 26px;
 }
 
 h1{
     color: #FFF;
+    font-size: 34px;
 }
 
 body{
@@ -53,6 +63,7 @@ body{
     top: 105px;
     margin-left: 30px;
     color: #a6a6a6;
+    font-size: 30px!important;
 }
 
 .fa-search:hover{
@@ -113,7 +124,6 @@ i:hover{
 
 .list_item h3{
     float: left;
-    padding-top: 65px;
     padding-left: 50px;
 }
 
@@ -121,7 +131,7 @@ i:hover{
     color: #a6a6a6;
     float: right;
     font-size: 25px;
-    margin: 70px;
+    margin: 60px;
     margin-right: 100px;
 }
 
@@ -183,7 +193,6 @@ select.invisible{
     margin-bottom: 20px;
     width: 40%;
     padding: 20px;
-    font-size: 20px;
     font-family: Roboto!important;
     font-weight: 200;
 
@@ -227,7 +236,6 @@ select.invisible{
 }
 
 .searchField{
-    font-size: 20px;
     font-family: Roboto!important;
     font-weight: 200;
     width: 100%;
@@ -264,9 +272,36 @@ select.invisible{
     border-right: 5px solid #5d4037;
 }
 
+.list-section{
+    width: 20%;
+    float: left;
+    padding-top: 60px;
+}
+
+.list-section i:hover{
+    cursor: default;
+}
+
+.list-section i{
+    font-size: 30px;
+}
+
+.list-section span{
+    padding: 5px;
+    display: block;
+    background: #795548;
+    width: inherit;
+    text-align: center;
+    color: #FFF;
+    border-radius: 10px;
+    float: left;
+    margin-right: 10px;
+}
+
+
 .table-top h1{
     padding-left: 15px;
-    padding-top: 75px;
+    padding-top: 85px;
 }
 
 .table-bottom{
@@ -280,7 +315,6 @@ select.invisible{
 .table-bottom p{
     padding-left: 15px;
     padding-top: 5px;
-    font-size: 20px;
     font-weight: 200!important;
 }
 

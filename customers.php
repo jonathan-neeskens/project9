@@ -3,7 +3,7 @@
         <?php include "includes/menu.php" ?>
         <div class="canvas bit-90">
             <input class="searchField" placeholder="Zoek naar klanten..." type="text">
-            <i class="fa fa-search fa-2x"></i>
+            <i class="fa fa-search"></i>
 
             <?php search("customers"); ?>
             <div class="innerCanvas">

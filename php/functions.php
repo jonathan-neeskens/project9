@@ -108,7 +108,9 @@ function table_list_2(){
             <div class='user_pic'>
                 <img src='img/table.png'>
             </div>
-            <h3> Tafel " .$row1['table_nr']. " </h3>
+            <div class='list-section'>
+                <h3> Tafel " .$row1['table_nr']. " </h3>
+            </div>
             <a href='edit_table.php?id=".$row1['id']."'>
                 <i class='fa fa-pencil'></i>
             </a>
@@ -129,7 +131,9 @@ function customer_list(){
             <div class='user_pic'>
                 <img src='img/customer.png'>
             </div>
+            <div class='list-section'>
             <h3> " .$row1['name']. " </h3>
+            </div>
             <a href='edit_customer.php?id=".$row1['id']."'>
                 <i class='fa fa-pencil'></i>
             </a>
@@ -155,7 +159,9 @@ function menu_list(){
             <div class='user_pic'>
                 <img src='img/menu.png'>
             </div>
+            <div class='list-section'>
             <h3> " .$row1['name']. " </h3>
+            </div>
             <a href='edit_menu.php?id=".$row1['id']."'>
                 <i class='fa fa-pencil'></i>
             </a>
@@ -169,22 +175,45 @@ function reservation_list(){
     $query1 = mysqli_query($link, "SELECT * FROM reservation");
 
     while($row1 = mysqli_fetch_assoc($query1)) {
-        //$time->modify('+2 hours');
-        echo $time ."<br>";
-        /*
+        $d = new DateTime($row1['datetime']);
+        $e = new DateTime($row1['datetime']);
+        $e->add(new DateInterval('PT2H'));
+
+        $nameQuery = mysqli_query($link, "SELECT `name` from `customer` WHERE `id` = ".$row1['customer_id']."");
+        $name = mysqli_fetch_assoc($nameQuery);
+
         echo "
         <div class='list_item'>
-            <div class='s1'>
-              <h3> " .$row1['app_time']. " </h3>  
+            <div class='list-section'>
+                <h3> " .$d->format('H:i'). " - ".$e->format('H:i')."</h3>
             </div>
-            <div>
+            <div class='list-section'>
+                ".$name['name']."
+            </div>
+            <div class='list-section'>
+                ".$row1['capacity']." &nbsp; <i class='fa fa-user' style='color: #000;'></i>
+            </div>
+            <div class='list-section'>
+                ";
 
+        $query2 = mysqli_query($link, "SELECT * FROM order_table WHERE reservation_id = ".$row1['id']."");
+
+        while($row2 = mysqli_fetch_assoc($query2)) {
+            $tableQuery = mysqli_query($link, "SELECT `table_nr` from `tables` WHERE `id` = ".$row2['table_id']."");
+            $table = mysqli_fetch_assoc($tableQuery);
+
+            echo "<span> ".$table['table_nr']." </span>";
+        }
+
+        echo "
             </div>
+            <div class='section'>
             <a href='edit_menu.php?id=".$row1['id']."'>
                 <i class='fa fa-pencil'></i>
             </a>
+            </div>
         </div>
-        "; */
+        ";
     }
 }
 
