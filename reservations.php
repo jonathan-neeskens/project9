@@ -6,7 +6,9 @@
     <i class="fa fa-search fa-2x"></i>
 
     <?php search("reservations"); ?>
-    <div class="innerCanvas"></div>
+    <div class="innerCanvas">
+        <?php reservation_list(); ?>
+    </div>
     <a href="add_reservation.php" class="addbutton">
         <i> + </i>
     </a>
