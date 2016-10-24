@@ -12,17 +12,19 @@ function search($page){
    // echo $page;
 }
 
-function create_user($role, $name, $adress, $city, $mail, $phone){
+function create_user($name, $address, $city, $mail, $phone){
     global $link;
-    if ($role == 'create_user') {
-        $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$adress', '$city', '$mail', '$phone')");
-        header("Location: customers.php?add=succes");
-    }
 
-    elseif ($role == 'create_user_reservation') {
-        $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$adress', '$city', '$mail', '$phone')");
-        header("Location: add_reservation.php?added=success");
-       }
+    $color[0] = '#00BCD4';
+    $color[1] = '#8BC34A';
+    $color[2] = '#FF9800';
+    $color[3] = '#9C27B0';
+
+    $randcolor = $color[rand()%count($color)];
+
+    $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$address', '$city', '$mail', '$phone', '$randcolor')");
+    header("Location: customers.php?add=success");
+
 }
 
 function check_tables($date, $time){
@@ -129,7 +131,7 @@ function customer_list(){
         echo "
         <div class='list_item'>
             <div class='user_pic'>
-                <img src='img/customer.png'>
+                <img style='background: ".$row1['app_color']."' src='img/customer.png'>
             </div>
             <div class='list-section'>
             <h3> " .$row1['name']. " </h3>

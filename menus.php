@@ -14,7 +14,7 @@
     </a>
     <div class="popup" style="display: none;"></div>
     <script>
-        if (window.location.href.indexOf("add=succes") != -1){
+        if (window.location.href.indexOf("add=success") != -1){
             alert('Toevoegen van menu was succesvol. Dit bericht moet binnenkort veranderd worden in een pop-up.');
             //addclass 'zichtbaar' aan <div class='popup'>
         }

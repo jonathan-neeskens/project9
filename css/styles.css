@@ -113,12 +113,10 @@ i:hover{
 .list_item img{
     height: 100px;
     width: 100px;
-    background: #f6f6f6;
     -webkit-border-radius:50%;
     -moz-border-radius:50%;
     border-radius:50%;
     margin: 25px;
-
     float: left;
 }
 
