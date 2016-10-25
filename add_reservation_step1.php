@@ -13,8 +13,9 @@
                    <?php
                     $date = $_POST['date'];
                     $time = $_POST['time'];
+                   $capacity = $_POST['capacity'];
 
-                    check_tables($date, $time);
+                    check_tables($date, $time, $capacity);
                     ?>
                 <!--</select>-->
                 <br>

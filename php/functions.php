@@ -27,26 +27,41 @@ function create_user($name, $address, $city, $mail, $phone){
 
 }
 
-function check_tables($date, $time){
+function check_tables($date, $time, $capacity){
     global $link;
-    $datetime = $date. " " .$time;
+    $reservation_start = $date. " " .$time;
+    $reservation_end_obj = new DateTime($date. " " .$time);
+    $reservation_end_obj->add(new DateInterval('PT2H'));
+
+
+    $reservation_end = date_format($reservation_end_obj, 'Y-m-d H:i:s');
+
+    $reservations_active = mysqli_query($link, "SELECT * FROM `reservation` WHERE `reservation_start` > '$reservation_start' AND `reservation_start` < '$reservation_end' OR `reservation_end` > '$reservation_start' AND `reservation_end` < '$reservation_end'");
+    echo "SELECT * FROM `reservation` WHERE `reservation_start` > '$reservation_start' AND `reservation_start` < '$reservation_end' OR `reservation_end` > '$reservation_start' AND `reservation_end` < '$reservation_end'";
+    //var_dump($reservations_active);
+
+    // select * from reservering where $reservation_start > 'reservation_start' OR $reservation_start < 'reservation_end' AND $reservation_end < 'reservation_start' OR $reservation_end > '$reservation_end'
+
+    //Selecteer waar datetime = kleiner dan eindtijd, AND datetime+2 uur is groter dan eindtijd
+
 
     //$tables = '?';
     //$begintijd  = '12.00';
     //$reservation_date = '20-10-2016 12:00:00';
     //$reservation_date_end = '20-10-2016 14:00:00'; 	//$reservation_date + 2u
 
-    //$reservations_active = mysqli_query($link, "SELECT * FROM `reservation` WHERE (datetime > '".$datetime."') OR ('$datetime' < date_add(datetime, INTERVAL 2 hour ))");
-    echo "SELECT * FROM `reservation` WHERE (datetime > '".$datetime."') OR ('$datetime' < date_add(datetime, INTERVAL 2 hour ))";
 
-    $active_tables = mysqli_query($link, "SELECT * FROM `tables` WHERE active = 1"); //in dit geval alle tafels
-    echo "SELECT * FROM `tables` WHERE active = 1";
-
-    //$reservation_tables = mysqli_query($link, "SELECT table_id FROM `order_table` WHERE id = $reservations_active->id"); //tafel 3 is gekoppeld aan de reservering
-    echo "SELECT table_id FROM `order_table` WHERE id = $reservations_active->id";
-
-    //$free_tables = mysqli_query($link, "SELECT * FROM `tables` WHERE id != $reservation_tables->id"); //tafel 1/2/4 komen uit hier
-    echo "SELECT * FROM `tables` WHERE id != $reservation_tables->id";
+//    //$reservations_active = mysqli_query($link, "SELECT * FROM `reservation` WHERE (datetime > '".datetime_end."') OR ('$datetime' < date_add(datetime, INTERVAL 2 hour ))");
+//    echo "SELECT * FROM `reservation` WHERE (datetime > '".$datetime."') AND ('$datetime' < date_add(datetime, INTERVAL 2 hour ))";
+//
+//    $active_tables = mysqli_query($link, "SELECT * FROM `tables` WHERE active = 1"); //in dit geval alle tafels
+//    echo "SELECT * FROM `tables` WHERE active = 1";
+//
+//    //$reservation_tables = mysqli_query($link, "SELECT table_id FROM `order_table` WHERE id = $reservations_active->id"); //tafel 3 is gekoppeld aan de reservering
+//    echo "SELECT table_id FROM `order_table` WHERE id = $reservations_active->id";
+//
+//    //$free_tables = mysqli_query($link, "SELECT * FROM `tables` WHERE id != $reservation_tables->id"); //tafel 1/2/4 komen uit hier
+//    echo "SELECT * FROM `tables` WHERE id != $reservation_tables->id";
 }
 
 
@@ -177,9 +192,8 @@ function reservation_list(){
     $query1 = mysqli_query($link, "SELECT * FROM reservation");
 
     while($row1 = mysqli_fetch_assoc($query1)) {
-        $d = new DateTime($row1['datetime']);
-        $e = new DateTime($row1['datetime']);
-        $e->add(new DateInterval('PT2H'));
+        $d = new DateTime($row1['reservation_start']);
+        $e = new DateTime($row1['reservation_end']);
 
         $nameQuery = mysqli_query($link, "SELECT `name` from `customer` WHERE `id` = ".$row1['customer_id']."");
         $name = mysqli_fetch_assoc($nameQuery);
