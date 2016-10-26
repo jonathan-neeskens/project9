@@ -33,35 +33,19 @@ function check_tables($date, $time, $capacity){
     $reservation_end_obj = new DateTime($date. " " .$time);
     $reservation_end_obj->add(new DateInterval('PT2H'));
 
-
+    //Formatteer het datetime object naar een string
     $reservation_end = date_format($reservation_end_obj, 'Y-m-d H:i:s');
 
-    $reservations_active = mysqli_query($link, "SELECT * FROM `reservation` WHERE `reservation_start` > '$reservation_start' AND `reservation_start` < '$reservation_end' OR `reservation_end` > '$reservation_start' AND `reservation_end` < '$reservation_end'");
-    echo "SELECT * FROM `reservation` WHERE `reservation_start` > '$reservation_start' AND `reservation_start` < '$reservation_end' OR `reservation_end` > '$reservation_start' AND `reservation_end` < '$reservation_end'";
-    //var_dump($reservations_active);
+    //Stap 1: Selecteer alle reserveringen die plaatsvinden op de ingevoerde tijd.
+    $reservations_active_query = mysqli_query($link, "SELECT * FROM `reservation` WHERE `reservation_start` >= '$reservation_start' AND `reservation_start` <= '$reservation_end' OR `reservation_end` >= '$reservation_start' AND `reservation_end` <= '$reservation_end'");
+    $reservations_active = mysqli_fetch_assoc($reservations_active_query);
+    echo "SELECT * FROM `reservation` WHERE `reservation_start` >= '$reservation_start' AND `reservation_start` <= '$reservation_end' OR `reservation_end` >= '$reservation_start' AND `reservation_end` <= '$reservation_end'<br><br>";
 
-    // select * from reservering where $reservation_start > 'reservation_start' OR $reservation_start < 'reservation_end' AND $reservation_end < 'reservation_start' OR $reservation_end > '$reservation_end'
+    //Stap 2: Selecteer uit order_table de table_ids waar reservation_id =  $reservations_active['id']. Je hebt nu alle table_ids van tafels die bezet zijn.
+    echo "SELECT * FROM `order_table` WHERE `reservation_id` = '".$reservations_active['id']."'";
 
-    //Selecteer waar datetime = kleiner dan eindtijd, AND datetime+2 uur is groter dan eindtijd
+    //Stap 3: Selecteer alles van tables die actief zijn EN waarvan het ID NIET overeenkomt met de table_IDs uit stap 2.
 
-
-    //$tables = '?';
-    //$begintijd  = '12.00';
-    //$reservation_date = '20-10-2016 12:00:00';
-    //$reservation_date_end = '20-10-2016 14:00:00'; 	//$reservation_date + 2u
-
-
-//    //$reservations_active = mysqli_query($link, "SELECT * FROM `reservation` WHERE (datetime > '".datetime_end."') OR ('$datetime' < date_add(datetime, INTERVAL 2 hour ))");
-//    echo "SELECT * FROM `reservation` WHERE (datetime > '".$datetime."') AND ('$datetime' < date_add(datetime, INTERVAL 2 hour ))";
-//
-//    $active_tables = mysqli_query($link, "SELECT * FROM `tables` WHERE active = 1"); //in dit geval alle tafels
-//    echo "SELECT * FROM `tables` WHERE active = 1";
-//
-//    //$reservation_tables = mysqli_query($link, "SELECT table_id FROM `order_table` WHERE id = $reservations_active->id"); //tafel 3 is gekoppeld aan de reservering
-//    echo "SELECT table_id FROM `order_table` WHERE id = $reservations_active->id";
-//
-//    //$free_tables = mysqli_query($link, "SELECT * FROM `tables` WHERE id != $reservation_tables->id"); //tafel 1/2/4 komen uit hier
-//    echo "SELECT * FROM `tables` WHERE id != $reservation_tables->id";
 }
 
 
@@ -159,10 +143,22 @@ function customer_list(){
     }
 }
 
-function change_menu($id, $name, $price){
+function change_menu($id, $name, $price, $availability){
     global $link;
-    $query = mysqli_query($link, "UPDATE `menu` SET `name` = '$name', `price` = '$price' WHERE `id` = '$id'");
-    header("Location: menus.php?change=success");
+
+    if ($availability == 'no'){
+        $query = mysqli_query($link, "UPDATE `menu` SET `name` = '$name', `price` = '$price' WHERE `id` = '$id'");
+
+        header("Location: menus.php?change=success");
+    }
+
+    else{
+        $query = mysqli_query($link, "UPDATE `menu` SET `name` = '$name', `price` = '$price', `availability` = '$availability' WHERE `id` = '$id'");
+        header("Location: menus.php?change=success");
+    }
+
+
+
 }
 
 function menu_list(){
@@ -190,6 +186,7 @@ function menu_list(){
 function reservation_list(){
     global $link;
     $query1 = mysqli_query($link, "SELECT * FROM reservation");
+    //TO DO: ALLEEN RESERVERINGEN DIE VANDAAG PLAATSVINDEN, LATEN ZIEN
 
     while($row1 = mysqli_fetch_assoc($query1)) {
         $d = new DateTime($row1['reservation_start']);

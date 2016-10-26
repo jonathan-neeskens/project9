@@ -138,6 +138,41 @@ i:hover{
     opacity: 0.6;
 }
 
+/* Switch */
+
+.switch{
+    width: 20%!important;
+    border: none;
+    margin-bottom: 25px;
+    padding: 20px;
+}
+
+.switch:focus{
+    border: none!important;
+    transition: background-color 200ms ease;
+    opacity: 1.0!important;
+}
+
+.switch.yes:focus{
+   background: forestgreen!important;
+   color: #FFF;
+}
+
+.switch.no{
+    margin-left: -5px!important;
+    border-left: 1px solid #cfcfcf;
+}
+
+.switch.yes{
+    border-right: 1px solid #cfcfcf;
+}
+
+
+.switch.no:focus{
+    background: red!important;
+    color: #FFF;
+}
+
 /* Canvas */
 .canvas{
     margin-top: 75px;
