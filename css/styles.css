@@ -95,12 +95,12 @@ body{
     padding: 37.5px;
     font-size: 50px;
     border-radius: 50%;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 }
 
 
 i:hover{
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     cursor: pointer;
 }
 
@@ -206,6 +206,8 @@ i:hover{
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
+
+/*Verborgen user-create*/
 .printbutton i:hover{
     box-shadow: none!important;
 }
@@ -407,8 +409,34 @@ input[type="submit"].delete {
     color: #FFF;
 }
 
-.addbutton i{
-    position: fixed;
+.printbutton {
+    border: none;
+    right: 21%!important;
+    width: 75px!important;
+    height: 75px!important;
+    font-size: 26px!important;
+    margin-bottom: 20px;
+}
+
+.add_customer{
+    background: #3ea959;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    font-size: 35px;
+    border: none;
+    color: #FFF;
+    font-weight: 300!important;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    margin-left: 20px;
+}
+
+.add_customer:hover{
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    opacity: 1.0!important;
+}
+
+.addbutton i, .printbutton{
     text-align: center;
     right: 15%;
     bottom: 40px;
@@ -421,11 +449,15 @@ input[type="submit"].delete {
     font-size: 60px;
     border-radius: 50%;
     background-color: #3ea959;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 }
 
-.addbutton i:hover {
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+.addbutton i, .printbutton.print_customers{
+    position: fixed!important;
+}
+
+.addbutton i:hover, .printbutton:hover {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     cursor: pointer;
 }
 

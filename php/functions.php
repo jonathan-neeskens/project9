@@ -27,6 +27,36 @@ function create_user($name, $address, $city, $mail, $phone){
 
 }
 
+function create_reservation($date, $time, $menu_array, $table_array, $capacity, $u_id){
+    global $link;
+
+    $reservation_start = $date. " " .$time;
+    $reservation_end_obj = new DateTime($date. " " .$time);
+    $reservation_end_obj->add(new DateInterval('PT2H'));
+
+    $reservation_end = date_format($reservation_end_obj, 'Y-m-d H:i:s');
+
+    //1. Maak een nieuwe row aan in reservations met daarin customer_id, capacity, reservation_start + end.
+    $query = mysqli_query($link, "INSERT INTO `reservation` VALUES (NULL, '$u_id', '$capacity', '$reservation_start', '$reservation_end')");
+
+    //2. Maak voor iedere tafel een nieuwe row in order_table met daarin het table_id + reserverings-id;
+    $reservation_id = mysqli_insert_id($link);
+    for ($i= 0; $i < count($table_array); $i++) {
+        $query = mysqli_query($link, "INSERT INTO `order_table` VALUES (NULL, '$reservation_id', '$table_array[$i]', '1')");
+    }
+
+    //2. Maak voor ieder menu een nieuwe row aan in orders met daarin het menu_id + reserverings_id;
+    var_dump($menu_array);
+//    for ($i= 0; $i < count($menu_array); $i++) {
+//        //$query = mysqli_query($link, "INSERT INTO `orders` VALUES (NULL, '$reservation_id', '$menu_array[$i]')");
+//        echo "INSERT INTO `orders` VALUES (NULL, '$reservation_id', '$menu_array[$i]')";
+//    }
+
+    //4. Header terug naar reserverings-overzicht?succes
+    //header("Location: reservations.php?add=success");
+}
+
+
 function check_tables($date, $time, $capacity){
     global $link;
     $reservation_start = $date. " " .$time;
@@ -39,13 +69,63 @@ function check_tables($date, $time, $capacity){
     //Stap 1: Selecteer alle reserveringen die plaatsvinden op de ingevoerde tijd.
     $reservations_active_query = mysqli_query($link, "SELECT * FROM `reservation` WHERE `reservation_start` >= '$reservation_start' AND `reservation_start` <= '$reservation_end' OR `reservation_end` >= '$reservation_start' AND `reservation_end` <= '$reservation_end'");
     $reservations_active = mysqli_fetch_assoc($reservations_active_query);
-    echo "SELECT * FROM `reservation` WHERE `reservation_start` >= '$reservation_start' AND `reservation_start` <= '$reservation_end' OR `reservation_end` >= '$reservation_start' AND `reservation_end` <= '$reservation_end'<br><br>";
 
-    //Stap 2: Selecteer uit order_table de table_ids waar reservation_id =  $reservations_active['id']. Je hebt nu alle table_ids van tafels die bezet zijn.
-    echo "SELECT * FROM `order_table` WHERE `reservation_id` = '".$reservations_active['id']."'";
 
-    //Stap 3: Selecteer alles van tables die actief zijn EN waarvan het ID NIET overeenkomt met de table_IDs uit stap 2.
+    //echo "SELECT * FROM `reservation` WHERE `reservation_start` >= '$reservation_start' AND `reservation_start` <= '$reservation_end' OR `reservation_end` >= '$reservation_start' AND `reservation_end` <= '$reservation_end'<br><br>";
 
+    //Stap 2a: Als er GEEN reserveringen plaatsvinden, zijn alle tafels dus beschikbaar.
+    if (!$reservations_active){
+        $free_tables_query = mysqli_query($link, "SELECT * FROM `tables` WHERE `availability` = '1'");
+        $n_o_tables = ceil($capacity / 4);
+        for ($i= 0; $i < $n_o_tables; $i++) {
+            echo "<select name='tables'>";
+            while ($free_tables = mysqli_fetch_assoc($free_tables_query)) {
+                echo "<option value='".$free_tables['id']."'> Tafel ".$free_tables['id']." </option>";
+            }
+            echo "</select> <br>";
+        }
+    }
+
+    //Stap 2b: Als er WEL reserveringen plaatsvinden, selecteer uit order_table de table_ids waar reservation_id =  $reservations_active['id']. Je hebt nu alle table_ids van tafels die bezet zijn.
+    else {
+        $array = array();
+        $number = count($reservations_active)/5;
+
+        for ($i= 0; $i < $number; $i++){
+            array_push($array, "AND reservation_id = '$reservations_active[id]'");
+        }
+        $array_string = implode(" ", $array);
+
+        //Check de hoeveelheid tafels.
+        $n_o_tables = ceil($capacity / 4);
+
+        //Check tabel order_tables.
+        $order_tables_query = mysqli_query($link, "SELECT * FROM `order_table` WHERE `availability` = '1' ".$array_string."");
+
+        $free_tables_array = Array();
+        $free_tables_assoc = mysqli_fetch_assoc($order_tables_query);
+
+        //Pleur table_ids in een array
+        $number2 = count($free_tables_assoc)/4;
+        for ($i= 0; $i < $number2; $i++){
+            array_push($free_tables_array, "AND id != '$free_tables_assoc[table_id]'");
+        }
+
+        $array_string2 = implode(" ", $free_tables_array);
+
+
+        for ($i= 0; $i < $n_o_tables; $i++) {
+            //Selecteer * from tables WHERE availability = '1'
+            $free_tables_query = mysqli_query($link, "SELECT * FROM `tables` WHERE `availability` = '1' $array_string2");
+            echo "<select name='tables[]'>";
+            while ($free_tables2 = mysqli_fetch_assoc($free_tables_query)) {
+                echo "<option value='".$free_tables2['id']."'> Tafel ".$free_tables2['table_nr']." </option>";
+            }
+            echo "</select> <br>";
+        }
+
+
+    }
 }
 
 
@@ -68,15 +148,49 @@ function get_receipt($table_id){
 
 }
 
+function pick_menus($capacity){
+    global $link;
+
+    $a = 1;
+
+    for ($i= 0; $i < $capacity; $i++){
+        echo
+            "<h3> Keuze persoon ".$a. ":</h3>
+            <select name='menu[]'>
+        ";
+
+
+        $query1 = mysqli_query($link, "SELECT * FROM menu");
+        while($row1 = mysqli_fetch_assoc($query1)) {
+            echo "<option value='".$row1['id']."'> ".$row1['name']." </option>";
+        }
+        echo "
+            </select>
+        ";
+        $a++;
+    }
+}
+
 function create_menu($name, $price){
     global $link;
     $query = mysqli_query($link, "INSERT INTO `menu` VALUES (NULL, '$name', '$price', '1')");
-    header("Location: menus.php?add=succes");
+    header("Location: menus.php?add=success");
+}
+
+function select_customer(){
+    global $link;
+    $query1 = mysqli_query($link, "SELECT * FROM customer");
+
+    while($row1 = mysqli_fetch_assoc($query1)) {
+        echo "
+        <option value='".$row1['id']."'> ".$row1['name'].", ".$row1['mail']." </option>
+        ";
+    }
 }
 
 function table_list(){
     global $link;
-    $query1 = mysqli_query($link, "SELECT * FROM tables");
+    $query1 = mysqli_query($link, "SELECT * FROM tables WHERE `availability` = '1'");
 
     while($row1 = mysqli_fetch_assoc($query1)) {
         echo "
@@ -221,13 +335,19 @@ function reservation_list(){
         echo "
             </div>
             <div class='section'>
-            <a href='edit_menu.php?id=".$row1['id']."'>
+            <a href='edit_reservation.php?id=".$row1['id']."'>
                 <i class='fa fa-pencil'></i>
             </a>
             </div>
         </div>
         ";
     }
+}
+
+function export_customers()
+{
+    global $link;
+
 }
 
 

@@ -1,6 +1,12 @@
 <?php include "includes/head.php" ?>
     <body>
         <?php include "includes/menu.php" ?>
+
+        <?php
+            if(isset($_POST["print"])){
+            export_customers();
+        }
+        ?>
         <div class="canvas bit-90">
             <input class="searchField" placeholder="Zoek naar klanten..." type="text">
             <i class="fa fa-search"></i>
@@ -10,6 +16,9 @@
                 <?php customer_list() ?>
             </div>
 
+            <button name="print" type="sumbit" class="printbutton print_customers">
+                <i class="fa fa-print"></i>
+            </button>
             <a href="add_cutsomer.php" class="addbutton">
                 <i> + </i>
             </a>

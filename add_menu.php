@@ -15,7 +15,7 @@
             ?>
             <form method="POST">
                 <input type="text" required name="name" placeholder="Naam"><br>
-                <input type="text" required name="adress" placeholder="Prijs"><br>
+                <input type="text" required name="price" placeholder="Prijs"><br>
                 <input type="submit" name="save" value="Opslaan (Tijdelijke knop)">
             </form>
         </div>

@@ -11,7 +11,7 @@
             <form method="POST" action="add_reservation_step1.php">
                 <input type="date" value="<?php echo date('Y-m-d'); ?>" required name="date" placeholder="Datum"><br>
                 <input type="time" value="<?php echo date('H'); ?>:00"required name="time" step="1800" placeholder="Tijd"><br>
-                <i class="fa fa-user"></i><input type="number" name="capacity" value="Aantal personen"> <br>
+                <i class="fa fa-user"></i><input required type="number" name="capacity" value="Aantal personen"> <br>
                 <input type="submit" name="check_tables" value="Tafels ophalen"> <br>
             </form>
     </div>
