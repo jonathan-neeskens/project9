@@ -47,10 +47,9 @@ function create_reservation($date, $time, $menu_array, $table_array, $capacity, 
 
     //2. Maak voor ieder menu een nieuwe row aan in orders met daarin het menu_id + reserverings_id;
     var_dump($menu_array);
-//    for ($i= 0; $i < count($menu_array); $i++) {
-//        //$query = mysqli_query($link, "INSERT INTO `orders` VALUES (NULL, '$reservation_id', '$menu_array[$i]')");
-//        echo "INSERT INTO `orders` VALUES (NULL, '$reservation_id', '$menu_array[$i]')";
-//    }
+    for ($i= 0; $i < count($menu_array); $i++) {
+        $query = mysqli_query($link, "INSERT INTO `orders` VALUES (NULL, '$reservation_id', '$menu_array[$i]')");
+    }
 
     //4. Header terug naar reserverings-overzicht?succes
     header("Location: reservations.php?add=success");
@@ -112,9 +111,6 @@ function check_tables($date, $time, $capacity){
             }
             echo "</select> <br>";
         }
-
-        //Stap 3: Stop alle table_ids van stap2 in een array die er zo uitziet: 'AND table_id != $table_id'
-        //Stap 4: Maak een query die alle tafels selecteer waar table_id != table
     }
 }
 

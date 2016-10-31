@@ -1,4 +1,6 @@
-<?php include "includes/head.php" ?>
+<?php include "includes/head.php";
+session_destroy();
+?>
 <body>
 <?php include "includes/menu.php" ?>
 <div class="canvas bit-90">

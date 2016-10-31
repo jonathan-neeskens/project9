@@ -64,7 +64,7 @@
                     <input type="email" name="mail" placeholder="E-mail adres"><br>
                     <input type="tel" name="phone" placeholder="Telefoonnummer"><br>
                 </div>
-                <input type="submit" name="save_reservation" value="Kies deze klant"> <br>
+                <input type="submit" name="pick_customer" value="Kies deze klant"> <br>
             </form>
         </div>
 
