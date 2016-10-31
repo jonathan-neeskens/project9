@@ -2,37 +2,40 @@
     include "includes/head.php";
     $_SESSION['menu_array'] = $_POST['menu'];
 
-    if(isset($_POST["save_reservation"])){
-        if (!$_POST['name'] AND !$_POST['address'] AND !$_POST['city'] AND !$_POST['mail'] AND !$_POST['phone']) {
-            $_SESSION['customer_id'] = $_POST['customer_id'];
-            header('Location: add_reservation_step4.php');
-        }
 
-        elseif($_POST['name'] AND $_POST['address'] AND $_POST['city'] AND $_POST['mail'] AND $_POST['phone']){
+//    if(isset($_POST["save_reservation"])){
+//        if (!$_POST['name'] AND !$_POST['address'] AND !$_POST['city'] AND !$_POST['mail'] AND !$_POST['phone']) {
+//            $_SESSION['customer_id'] = $_POST['customer_id'];
+//            header('Location: add_reservation_step4.php');
+//        }
+//
+//        elseif($_POST['name'] AND $_POST['address'] AND $_POST['city'] AND $_POST['mail'] AND $_POST['phone']){
+//
+//            $name = $_POST['name'];
+//            $address = $_POST['address'];
+//            $city = $_POST['city'];
+//            $mail = $_POST['mail'];
+//            $phone = $_POST['phone'];
+//
+//            global $link;
+//
+//            $color[0] = '#00BCD4';
+//            $color[1] = '#8BC34A';
+//            $color[2] = '#FF9800';
+//            $color[3] = '#9C27B0';
+//
+//            $randcolor = $color[rand()%count($color)];
+//
+//            $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$address', '$city', '$mail', '$phone', '$randcolor')");
+//
+//            $u_id = mysqli_insert_id($link);
+//
+//            $_SESSION['customer_id'] = $u_id;
+//            header('Location: add_reservation_step4.php');
+//        }
+//    }
 
-            $name = $_POST['name'];
-            $address = $_POST['address'];
-            $city = $_POST['city'];
-            $mail = $_POST['mail'];
-            $phone = $_POST['phone'];
 
-            global $link;
-
-            $color[0] = '#00BCD4';
-            $color[1] = '#8BC34A';
-            $color[2] = '#FF9800';
-            $color[3] = '#9C27B0';
-
-            $randcolor = $color[rand()%count($color)];
-
-            $query = mysqli_query($link, "INSERT INTO `customer` VALUES (NULL, '$name', '$address', '$city', '$mail', '$phone', '$randcolor')");
-
-            $u_id = mysqli_insert_id($link);
-
-            $_SESSION['customer_id'] = $u_id;
-            header('Location: add_reservation_step4.php');
-        }
-    }
 ?>
 <body>
 <?php include "includes/menu.php" ?>
@@ -43,7 +46,7 @@
         <a href="#"> <i class="fa fa-floppy-o fa-3x"></i> </a>
         <div class="inside_innerCanvas">
             <h2> 3. Selecteer een klant of voeg deze toe. </h2>
-            <form method="POST">
+            <form method="POST" action="add_reservation_step4.php">
                 <select required name="customer_id">
                     <option selected disabled> Kies een klant... </option>
                     <?php

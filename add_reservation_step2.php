@@ -1,8 +1,9 @@
 <?php
 include "includes/head.php";
 $_SESSION['table_array'] = $_POST['tables'];
-
+var_dump($_SESSION['table_array']);
 ?>
+
 <body>
 <?php include "includes/menu.php" ?>
 <div class="canvas bit-90">
