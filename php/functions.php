@@ -285,7 +285,7 @@ function menu_list(){
 
 function reservation_list(){
     global $link;
-    $query1 = mysqli_query($link, "SELECT * FROM reservation");
+    $query1 = mysqli_query($link, "SELECT * FROM reservation ORDER BY `reservation_start` ASC");
     //TO DO: ALLEEN RESERVERINGEN DIE VANDAAG PLAATSVINDEN, LATEN ZIEN
 
     while($row1 = mysqli_fetch_assoc($query1)) {
@@ -334,8 +334,9 @@ function export_customers()
 {
     global $link;
 
+    echo "SELECT * FROM `customers` INTO OUTFILE 'C:/tmp/klantsysteem.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n';";
 }
-
+s
 
 function delete_user($id){
     global $link;

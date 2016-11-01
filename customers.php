@@ -2,23 +2,30 @@
     <body>
         <?php include "includes/menu.php" ?>
 
-        <?php
-            if(isset($_POST["print"])){
-            export_customers();
-        }
-        ?>
+
         <div class="canvas bit-90">
+
             <input class="searchField" placeholder="Zoek naar klanten..." type="text">
             <i class="fa fa-search"></i>
 
             <?php search("customers"); ?>
             <div class="innerCanvas">
                 <?php customer_list() ?>
-            </div>
 
+                <?php
+                if(isset($_POST["print"])){
+                    export_customers();
+                }
+
+
+                ?>
+
+            </div>
+            <form method="POST">
             <button name="print" type="sumbit" class="printbutton print_customers">
                 <i class="fa fa-print"></i>
             </button>
+            </form>
             <a href="add_cutsomer.php" class="addbutton">
                 <i> + </i>
             </a>

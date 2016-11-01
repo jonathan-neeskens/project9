@@ -6,8 +6,9 @@
     if($_GET['receipt_id']){
         echo "<script> $('.popup').addClass('visible'); $('.layer').addClass('visible'); </script>";
         get_receipt($_GET['receipt_id']);
-
     }
+
+
     ?>
     <button onclick="invisible()">Sluiten</button>
 </div>
@@ -16,7 +17,9 @@
             <a href="table_settings.php">
                 <i class="fa fa-cog fa-2x"></i>
             </a>
-            <?php table_list() ?>
+            <?php
+                table_list();
+            ?>
 
         </div>
         <script>
