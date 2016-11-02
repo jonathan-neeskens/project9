@@ -7,8 +7,6 @@
         echo "<script> $('.popup').addClass('visible'); $('.layer').addClass('visible'); </script>";
         get_receipt($_GET['receipt_id']);
     }
-
-
     ?>
     <button onclick="invisible()">Sluiten</button>
 </div>

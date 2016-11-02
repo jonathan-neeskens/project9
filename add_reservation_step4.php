@@ -31,7 +31,7 @@ include "includes/head.php";
 
 
     if(isset($_POST["save_reservation"])){
-        create_reservation($_SESSION['date'], $_SESSION['time'], $_SESSION['menu_array'], $_SESSION['table_array'], $_SESSION['capacity'], $_SESSION['customer_id']);
+       create_reservation($_SESSION['date'], $_SESSION['time'], $_SESSION['menu_array'], $_SESSION['table_array'], $_SESSION['capacity'], $_SESSION['customer_id']);
     }
 
 
@@ -43,11 +43,13 @@ include "includes/head.php";
 
     //tafel(s)
     $table_name_array = array();
+
     for ($i= 0; $i < count($_SESSION['table_array']); $i++){
         $table_id = $_SESSION['table_array'][$i];
         $table_name_query = mysqli_query($link, "SELECT * FROM `tables` WHERE `id` = '$table_id'");
 
         $table_name_assoc = mysqli_fetch_assoc($table_name_query);
+
         array_push($table_name_array, ", Tafel ".$table_name_assoc['table_nr']."");
     }
 

@@ -37,21 +37,22 @@ function create_reservation($date, $time, $menu_array, $table_array, $capacity, 
     $reservation_end = date_format($reservation_end_obj, 'Y-m-d H:i:s');
 
     //1. Maak een nieuwe row aan in reservations met daarin customer_id, capacity, reservation_start + end.
-    $query = mysqli_query($link, "INSERT INTO `reservation` VALUES (NULL, '$u_id', '$capacity', '$reservation_start', '$reservation_end')");
+    $query1 = mysqli_query($link, "INSERT INTO `reservation` VALUES (NULL, '$u_id', '$capacity', '$reservation_start', '$reservation_end', '1')");
 
     //2. Maak voor iedere tafel een nieuwe row in order_table met daarin het table_id + reserverings-id;
     $reservation_id = mysqli_insert_id($link);
+
     for ($i= 0; $i < count($table_array); $i++) {
-        $query = mysqli_query($link, "INSERT INTO `order_table` VALUES (NULL, '$reservation_id', '$table_array[$i]', '1')");
+        $query2 = mysqli_query($link, "INSERT INTO `order_table` VALUES (NULL, '$reservation_id', '$table_array[$i]', '1')");
     }
 
     //2. Maak voor ieder menu een nieuwe row aan in orders met daarin het menu_id + reserverings_id;
-    var_dump($menu_array);
     for ($i= 0; $i < count($menu_array); $i++) {
-        $query = mysqli_query($link, "INSERT INTO `orders` VALUES (NULL, '$reservation_id', '$menu_array[$i]')");
+        $query3 = mysqli_query($link, "INSERT INTO `orders` VALUES (NULL, '$reservation_id', '$menu_array[$i]')");
     }
 
     //4. Header terug naar reserverings-overzicht?succes
+    session_destroy();
     header("Location: reservations.php?add=success");
 }
 
@@ -79,7 +80,7 @@ function check_tables($date, $time, $capacity){
     if (count($reservations_active_array) == 0){
         for ($i= 0; $i < ceil($capacity / 4); $i++) {
             $tables_available = mysqli_query($link, "SELECT * FROM `tables` WHERE `availability` = '1'");
-            echo "<select name='tables'>";
+            echo "<select name='tables[]'>";
             while ($table_row2 = mysqli_fetch_assoc($tables_available)) {
                 echo "<option value='".$table_row2['id']."'> Tafel ".$table_row2['table_nr']."</option>";
                             }
@@ -121,17 +122,22 @@ function change_user($id, $name, $adress, $city, $mail, $phone){
     header("Location: customers.php?change=success");
 }
 
-function get_receipt($table_id){
-    echo $table_id;
+function get_receipt($reservation_id){
+    global $link;
 
-    //$query1. Select*from order_table where table_id = $table_id
-    //$query2. select*from orders where reservation_id = $$query1['reservation_id']
-    // while (query2){
-    //  select price from menu where id = $query2['menu_id'];
-    //  Toevoegen aan array $totaal of zo iets?
-    //}
-    // echo "totaal: €" .$totaal;
+    $total = "0";
 
+    $receipt_query = mysqli_query($link, "SELECT * FROM `orders` WHERE `reservation_id` = '$reservation_id'");
+    echo "<table>";
+    while($receipt_row = mysqli_fetch_assoc($receipt_query)){
+        $receipt_query_2 = mysqli_query($link, "SELECT * FROM `menu` WHERE `id` = '$receipt_row[menu_id]'");
+        $receipt_row_2 = mysqli_fetch_assoc($receipt_query_2);
+        $total = $total + $receipt_row_2['price'];
+        echo "<tr><td>".$receipt_row_2['name']."</td><td>€".$receipt_row_2['price']."</td></tr>";
+    }
+    echo "</table> <br<br><br<br>";
+
+    echo "<h3>~ Totaal: €".$total." ~</h3>";
 }
 
 function pick_menus($capacity){
@@ -178,18 +184,63 @@ function table_list(){
     global $link;
     $query1 = mysqli_query($link, "SELECT * FROM tables WHERE `availability` = '1'");
 
+    $time_obj = new DateTime();
+
+    //Formatteer het datetime object naar een string
+    $time = date_format($time_obj, 'Y-m-d H:i:s');
+
+    //$query = mysqli_query($link, "SELECT * ");
+
+    //Stap 1: Select * FROM reservations WHERE availability = '1' AND `reservation_start` <= '$time' AND  `reservation_end` >= '$time';
+
+
     while($row1 = mysqli_fetch_assoc($query1)) {
+        $next_query = mysqli_query($link, "SELECT * FROM `order_table` WHERE `table_id` = '".$row1['id']."'");
+
+        $next_assoc = mysqli_fetch_assoc($next_query);
+
+        if(count($next_assoc) == 0){
+            //Geen reserveringen vandaag voor deze tafel
+            $next_customer = "<p>Geen reserveringen</p>";
+            $activity = false;
+        }
+
+        else{
+            //Check of er reserveringen zijn op dit moment
+            $next_customer_query = mysqli_query($link, "SELECT * FROM reservation WHERE `id` = '$next_assoc[reservation_id]' AND active = '1' AND `reservation_start` <= '$time' AND  `reservation_end` >= '$time'");
+            $next_customer_assoc = mysqli_fetch_assoc($next_customer_query);
+            if (count($next_customer_assoc) == 0){
+                $activity = false;
+                $next_customer = "<p>Geen reserveringen</p>";
+            }
+
+            else{
+                $next_customer_query2 = mysqli_query($link, "SELECT * FROM `customer` WHERE `id` = '$next_customer_assoc[customer_id]'");
+                $next_customer_assoc2 = mysqli_fetch_assoc($next_customer_query2);
+                $next_customer = "<p>".$next_customer_assoc2['name']. "<br><u>".$next_customer_assoc['capacity']." personen</u></p>";
+                $activity = true;
+            }
+
+        }
+
         echo "
         <div class='table_wrapper'>
             <div class='table'>
                 <div class='table-top'>
                     <h1> Tafel " . $row1['table_nr'] . " </h1>
-                    <a class='printbutton' href='index.php?receipt_id=".$row1['id']."'>
-                        <i class='fa fa-print'></i>
-                    </a>
+                    ";
+        if ($activity == true) {
+            echo "
+            <a class='printbutton' href='index.php?receipt_id=" . $next_assoc['reservation_id'] . "'>
+                <i class='fa fa-print'></i>
+            </a>
+        ";
+        }
+
+        echo "
                 </div>
                 <div class='table-bottom'>
-                    <p><strong>3</strong><light>/4 personen</light></p>
+                        ".$next_customer."
                 </div>
             </div>
         </div>
@@ -334,9 +385,10 @@ function export_customers()
 {
     global $link;
 
-    echo "SELECT * FROM `customers` INTO OUTFILE 'C:/tmp/klantsysteem.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n';";
+    $export_query = mysqli_query($link, "SELECT id, name, adress, city, mail, phone FROM customer INTO OUTFILE 'C:/Users/Jonathan/Downloads/project9_csv/customers.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n'");
+    echo "<a href = 'file:///C:\Users\Jonathan\Downloads\project9_csv\customers.csv'> Bestand inzien </a>";
 }
-s
+
 
 function delete_user($id){
     global $link;
