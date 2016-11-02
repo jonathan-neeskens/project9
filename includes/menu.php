@@ -12,7 +12,7 @@
         <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
     </a>
 
-    <a href="reservations.php" class="menu_item">
+    <a href="reservations.php?view=today" class="menu_item">
         <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
     </a>
 </div>

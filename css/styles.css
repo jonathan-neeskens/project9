@@ -105,6 +105,34 @@ i:hover{
 }
 
 /* List */
+.list_item.first{
+    height: 75px;
+}
+
+.list_item.first a{
+    color: #000;
+    font-size: 25px;
+    float: none;
+    margin: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 130px;
+    padding-right: 130px;
+    text-decoration: none;
+}
+
+.list_item .listbutton{
+    text-align: center!important;
+    height: 100%;
+    width: calc(100% / 3);
+    float: left;
+    padding-top: 20px;
+}
+
+.list_item .listbutton.active{
+    border_bottom: 2px solid #9c27b0!important;
+}
+
 .list_item{
     height: 150px;
     border-bottom: 1px solid #cfcfcf;

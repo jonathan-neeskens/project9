@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+setlocale(LC_TIME, 'NL_nl');
+
 //db-gegevens
 $host = 'localhost';
 $username = 'root';
@@ -53,7 +56,7 @@ function create_reservation($date, $time, $menu_array, $table_array, $capacity, 
 
     //4. Header terug naar reserverings-overzicht?succes
     session_destroy();
-    header("Location: reservations.php?add=success");
+    header("Location: reservations.php?view=today&add=success");
 }
 
 
@@ -334,14 +337,47 @@ function menu_list(){
     }
 }
 
-function reservation_list(){
+function reservation_list($view){
     global $link;
-    $query1 = mysqli_query($link, "SELECT * FROM reservation ORDER BY `reservation_start` ASC");
-    //TO DO: ALLEEN RESERVERINGEN DIE VANDAAG PLAATSVINDEN, LATEN ZIEN
+
+    if ($view == 'today'){
+        $viewdate_obj = new DateTime();
+        $viewdate_start = date_format($viewdate_obj, 'Y-m-d 00:00:00');
+        $viewdate_end = date_format($viewdate_obj, 'Y-m-d 23:59:59');
+
+        $query1 = mysqli_query($link, "SELECT * FROM reservation WHERE `reservation_start` >= '$viewdate_start' AND `reservation_end` <= '$viewdate_end' ORDER BY `reservation_start` ASC");
+    }
+
+    elseif ($view == 'week'){
+        $viewdate_obj = new DateTime();
+        $viewdate_start = date_format($viewdate_obj, 'Y-m-d 00:00:00');
+        $viewdate_end_obj = $viewdate_obj->modify('+1 week');
+        $viewdate_end = date_format($viewdate_end_obj, 'Y-m-d 23:59:59');
+
+        $query1 = mysqli_query($link, "SELECT * FROM reservation WHERE `reservation_start` >= '$viewdate_start' AND `reservation_end` <= '$viewdate_end' ORDER BY `reservation_start` ASC");
+    }
+
+    elseif ($view == 'all'){
+        $query1 = mysqli_query($link, "SELECT * FROM reservation");
+    }
 
     while($row1 = mysqli_fetch_assoc($query1)) {
         $d = new DateTime($row1['reservation_start']);
         $e = new DateTime($row1['reservation_end']);
+
+        if ($view == 'today'){
+            $day = "";
+        }
+
+        elseif ($view == 'week'){
+            $day = $d->format('D');
+            $day .= ", ";
+        }
+
+        elseif ($view == 'all'){
+            $day = $d->format('Y-d-m');
+            $day .= ", ";
+        }
 
         $nameQuery = mysqli_query($link, "SELECT `name` from `customer` WHERE `id` = ".$row1['customer_id']."");
         $name = mysqli_fetch_assoc($nameQuery);
@@ -349,7 +385,7 @@ function reservation_list(){
         echo "
         <div class='list_item'>
             <div class='list-section'>
-                <h3> " .$d->format('H:i'). " - ".$e->format('H:i')."</h3>
+                <h3> ".$day." " .$d->format('H:i'). " - ".$e->format('H:i')."</h3>
             </div>
             <div class='list-section'>
                 ".$name['name']."
