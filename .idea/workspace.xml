@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6595b0da-6356-4844-8aa7-1ea5f9ed98a7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add_reservation_step2.php" afterPath="$PROJECT_DIR$/add_reservation_step2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add_reservation_step4.php" afterPath="$PROJECT_DIR$/add_reservation_step4.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/styles.css" afterPath="$PROJECT_DIR$/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customers.php" afterPath="$PROJECT_DIR$/customers.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/menus.php" afterPath="$PROJECT_DIR$/menus.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/functions.php" afterPath="$PROJECT_DIR$/php/functions.php" />
     </list>
     <ignored path="project9.iws" />
@@ -31,78 +30,70 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="203" column="51" selection-start-line="203" selection-start-column="51" selection-end-line="203" selection-end-column="51" />
+            <state relative-caret-position="379">
+              <caret line="388" column="45" selection-start-line="388" selection-start-column="45" selection-end-line="388" selection-end-column="45" />
               <folding>
-                <marker date="1478093984451" expanded="true" signature="525:624" ph="INSERT INTO `customer`... " />
-                <marker date="1478093984451" expanded="true" signature="1169:1277" ph="INSERT INTO `reservation`... " />
-                <marker date="1478093984451" expanded="true" signature="1524:1607" ph="INSERT INTO `order_table`... " />
-                <marker date="1478093984451" expanded="true" signature="1807:1879" ph="INSERT INTO `orders`... " />
-                <marker date="1478093984451" expanded="true" signature="2564:2779" ph="SELECT `id` reservation" />
-                <marker date="1478093984451" expanded="true" signature="3160:3209" ph="SELECT * FRO... tables" />
-                <marker date="1478093984451" expanded="true" signature="3921:3980" ph="SELECT * FRO... order_table" />
-                <marker date="1478093984451" expanded="true" signature="4336:4386" ph="SELECT * FRO... tables" />
-                <marker date="1478093984451" expanded="true" signature="4815:4950" ph="UPDATE `cust... " />
-                <marker date="1478093984451" expanded="true" signature="5130:5195" ph="SELECT * FRO... orders" />
-                <marker date="1478093984451" expanded="true" signature="5329:5386" ph="SELECT * FRO... menu" />
-                <marker date="1478093984451" expanded="true" signature="5888:5897" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="5942:5960" ph="SELECT * FRO... menu" />
-                <marker date="1478093984451" expanded="true" signature="6268:6324" ph="INSERT INTO `menu`... " />
-                <marker date="1478093984451" expanded="true" signature="6459:6481" ph="SELECT * FRO... customer" />
-                <marker date="1478093984451" expanded="true" signature="6734:6781" ph="SELECT * FRO... tables" />
-                <marker date="1478093984451" expanded="true" signature="7204:7268" ph="SELECT * FRO... order_table" />
-                <marker date="1478093984451" expanded="true" signature="7652:7737" ph="SELECT * FRO... reservation" />
-                <marker date="1478093984451" expanded="true" signature="7652:7806" ph="SELECT * FRO... reservation" />
-                <marker date="1478093984451" expanded="true" signature="8129:8202" ph="SELECT * FRO... customer" />
-                <marker date="1478093984451" expanded="true" signature="8532:8688" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="8564:8688" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="8604:8688" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="9008:9074" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="9209:9229" ph="SELECT * FRO... tables" />
-                <marker date="1478093984451" expanded="true" signature="9328:9673" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="9363:9424" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="9463:9539" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="9596:9658" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="9775:9797" ph="SELECT * FRO... customer" />
-                <marker date="1478093984451" expanded="true" signature="9896:10276" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="9931:10038" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="9961:9973" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="10077:10139" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="10199:10261" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="10444:10517" ph="UPDATE `menu... " />
-                <marker date="1478093984451" expanded="true" signature="10631:10738" ph="UPDATE `menu... " />
-                <marker date="1478093984451" expanded="true" signature="10883:10901" ph="SELECT * FRO... menu" />
-                <marker date="1478093984451" expanded="true" signature="11000:11329" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="11035:11095" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="11134:11196" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="11252:11314" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="11433:11491" ph="SELECT * FRO... reservation" />
-                <marker date="1478093984451" expanded="true" signature="11767:11835" ph="SELECT `name... customer" />
-                <marker date="1478093984451" expanded="true" signature="11932:12363" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="11971:12064" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="12103:12156" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="12195:12307" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="12235:12241" ph=" " />
-                <marker date="1478093984451" expanded="true" signature="12271:12283" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="12346:12363" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="12407:12472" ph="SELECT * FRO... order_table" />
-                <marker date="1478093984451" expanded="true" signature="12576:12643" ph="SELECT `tabl... tables" />
-                <marker date="1478093984451" expanded="true" signature="12836:12980" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="12899:12961" ph="..." />
-                <marker date="1478093984451" expanded="true" signature="13107:13318" ph="SELECT id, n... customer" />
-                <marker date="1478093984451" expanded="true" signature="13513:13557" ph="DELETE FROM " />
-                <marker date="1478093984451" expanded="true" signature="13697:13743" ph="INSERT INTO `tables`... " />
+                <marker date="1478094554176" expanded="true" signature="525:624" ph="INSERT INTO `customer`... " />
+                <marker date="1478094554176" expanded="true" signature="1169:1277" ph="INSERT INTO `reservation`... " />
+                <marker date="1478094554176" expanded="true" signature="1524:1607" ph="INSERT INTO `order_table`... " />
+                <marker date="1478094554176" expanded="true" signature="1807:1879" ph="INSERT INTO `orders`... " />
+                <marker date="1478094554176" expanded="true" signature="2564:2779" ph="SELECT `id` reservation" />
+                <marker date="1478094554176" expanded="true" signature="3160:3209" ph="SELECT * FRO... tables" />
+                <marker date="1478094554176" expanded="true" signature="3921:3980" ph="SELECT * FRO... order_table" />
+                <marker date="1478094554176" expanded="true" signature="4336:4386" ph="SELECT * FRO... tables" />
+                <marker date="1478094554176" expanded="true" signature="4815:4950" ph="UPDATE `cust... " />
+                <marker date="1478094554176" expanded="true" signature="5130:5195" ph="SELECT * FRO... orders" />
+                <marker date="1478094554176" expanded="true" signature="5329:5386" ph="SELECT * FRO... menu" />
+                <marker date="1478094554176" expanded="true" signature="5888:5897" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="5942:5960" ph="SELECT * FRO... menu" />
+                <marker date="1478094554176" expanded="true" signature="6268:6324" ph="INSERT INTO `menu`... " />
+                <marker date="1478094554176" expanded="true" signature="6459:6481" ph="SELECT * FRO... customer" />
+                <marker date="1478094554176" expanded="true" signature="6734:6781" ph="SELECT * FRO... tables" />
+                <marker date="1478094554176" expanded="true" signature="7204:7268" ph="SELECT * FRO... order_table" />
+                <marker date="1478094554176" expanded="true" signature="7652:7737" ph="SELECT * FRO... reservation" />
+                <marker date="1478094554176" expanded="true" signature="7652:7806" ph="SELECT * FRO... reservation" />
+                <marker date="1478094554176" expanded="true" signature="8129:8202" ph="SELECT * FRO... customer" />
+                <marker date="1478094554176" expanded="true" signature="8532:8688" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="8564:8688" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="8604:8688" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="9008:9074" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="9209:9229" ph="SELECT * FRO... tables" />
+                <marker date="1478094554176" expanded="true" signature="9328:9673" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="9363:9424" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="9463:9539" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="9596:9658" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="9775:9797" ph="SELECT * FRO... customer" />
+                <marker date="1478094554176" expanded="true" signature="9896:10276" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="9931:10038" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="9961:9973" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="10077:10139" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="10199:10261" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="10444:10517" ph="UPDATE `menu... " />
+                <marker date="1478094554176" expanded="true" signature="10631:10738" ph="UPDATE `menu... " />
+                <marker date="1478094554176" expanded="true" signature="10883:10901" ph="SELECT * FRO... menu" />
+                <marker date="1478094554176" expanded="true" signature="11000:11329" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="11035:11095" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="11134:11196" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="11252:11314" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="11433:11491" ph="SELECT * FRO... reservation" />
+                <marker date="1478094554176" expanded="true" signature="11767:11835" ph="SELECT `name... customer" />
+                <marker date="1478094554176" expanded="true" signature="11932:12363" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="11971:12064" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="12103:12156" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="12195:12307" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="12235:12241" ph=" " />
+                <marker date="1478094554176" expanded="true" signature="12271:12283" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="12346:12363" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="12407:12472" ph="SELECT * FRO... order_table" />
+                <marker date="1478094554176" expanded="true" signature="12576:12643" ph="SELECT `tabl... tables" />
+                <marker date="1478094554176" expanded="true" signature="12836:12980" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="12899:12961" ph="..." />
+                <marker date="1478094554176" expanded="true" signature="13107:13178" ph="SELECT id, n... customer" />
+                <marker date="1478094554176" expanded="true" signature="13107:13180" ph="SELECT id, n... customer" />
+                <marker date="1478094554176" expanded="true" signature="13107:13319" ph="SELECT id, n... customer" />
+                <marker date="1478094554176" expanded="true" signature="13453:13497" ph="DELETE FROM " />
+                <marker date="1478094554176" expanded="true" signature="13637:13683" ph="INSERT INTO `tables`... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/add_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -144,22 +135,9 @@
       <file leaf-file-name="menus.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/menus.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="264">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -187,8 +165,28 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8624">
-              <caret line="392" column="21" selection-start-line="392" selection-start-column="21" selection-end-line="392" selection-end-column="21" />
+            <state relative-caret-position="93">
+              <caret line="367" column="35" selection-start-line="367" selection-start-column="35" selection-end-line="367" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="45" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customers.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="36" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -203,6 +201,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/css/styles.css" />
+        <option value="$PROJECT_DIR$/menus.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/customers.php" />
         <option value="$PROJECT_DIR$/php/functions.php" />
       </list>
     </option>
@@ -347,12 +348,12 @@
       <updated>1477305187162</updated>
       <workItem from="1477305188406" duration="592000" />
       <workItem from="1478005840252" duration="7521000" />
-      <workItem from="1478093907618" duration="99000" />
+      <workItem from="1478093907618" duration="648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8212000" />
+    <option name="totallyTimeSpent" value="8761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -398,64 +399,66 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1478093984451" expanded="true" signature="525:624" ph="INSERT INTO `customer`... " />
-            <marker date="1478093984451" expanded="true" signature="1169:1277" ph="INSERT INTO `reservation`... " />
-            <marker date="1478093984451" expanded="true" signature="1524:1607" ph="INSERT INTO `order_table`... " />
-            <marker date="1478093984451" expanded="true" signature="1807:1879" ph="INSERT INTO `orders`... " />
-            <marker date="1478093984451" expanded="true" signature="2564:2779" ph="SELECT `id` reservation" />
-            <marker date="1478093984451" expanded="true" signature="3160:3209" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="3921:3980" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="4336:4386" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="4815:4950" ph="UPDATE `cust... " />
-            <marker date="1478093984451" expanded="true" signature="5130:5195" ph="SELECT * FRO... orders" />
-            <marker date="1478093984451" expanded="true" signature="5329:5386" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="5888:5897" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="5942:5960" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="6268:6324" ph="INSERT INTO `menu`... " />
-            <marker date="1478093984451" expanded="true" signature="6459:6481" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="6734:6781" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="7204:7268" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="7652:7737" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="7652:7806" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="8129:8202" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="8532:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="8564:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="8604:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9008:9074" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9209:9229" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="9328:9673" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9363:9424" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9463:9539" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9596:9658" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9775:9797" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="9896:10276" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9931:10038" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9961:9973" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10077:10139" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10199:10261" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10444:10517" ph="UPDATE `menu... " />
-            <marker date="1478093984451" expanded="true" signature="10631:10738" ph="UPDATE `menu... " />
-            <marker date="1478093984451" expanded="true" signature="10883:10901" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="11000:11329" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11035:11095" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11134:11196" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11252:11314" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11433:11491" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="11767:11835" ph="SELECT `name... customer" />
-            <marker date="1478093984451" expanded="true" signature="11932:12363" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11971:12064" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12103:12156" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12195:12307" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12235:12241" ph=" " />
-            <marker date="1478093984451" expanded="true" signature="12271:12283" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12346:12363" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12407:12472" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="12576:12643" ph="SELECT `tabl... tables" />
-            <marker date="1478093984451" expanded="true" signature="12836:12980" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12899:12961" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="13107:13318" ph="SELECT id, n... customer" />
-            <marker date="1478093984451" expanded="true" signature="13513:13557" ph="DELETE FROM " />
-            <marker date="1478093984451" expanded="true" signature="13697:13743" ph="INSERT INTO `tables`... " />
+            <marker date="1478094554176" expanded="true" signature="525:624" ph="INSERT INTO `customer`... " />
+            <marker date="1478094554176" expanded="true" signature="1169:1277" ph="INSERT INTO `reservation`... " />
+            <marker date="1478094554176" expanded="true" signature="1524:1607" ph="INSERT INTO `order_table`... " />
+            <marker date="1478094554176" expanded="true" signature="1807:1879" ph="INSERT INTO `orders`... " />
+            <marker date="1478094554176" expanded="true" signature="2564:2779" ph="SELECT `id` reservation" />
+            <marker date="1478094554176" expanded="true" signature="3160:3209" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="3921:3980" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="4336:4386" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="4815:4950" ph="UPDATE `cust... " />
+            <marker date="1478094554176" expanded="true" signature="5130:5195" ph="SELECT * FRO... orders" />
+            <marker date="1478094554176" expanded="true" signature="5329:5386" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="5888:5897" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="5942:5960" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="6268:6324" ph="INSERT INTO `menu`... " />
+            <marker date="1478094554176" expanded="true" signature="6459:6481" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="6734:6781" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="7204:7268" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="7652:7737" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="7652:7806" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="8129:8202" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="8532:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="8564:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="8604:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9008:9074" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9209:9229" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="9328:9673" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9363:9424" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9463:9539" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9596:9658" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9775:9797" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="9896:10276" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9931:10038" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9961:9973" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10077:10139" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10199:10261" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10444:10517" ph="UPDATE `menu... " />
+            <marker date="1478094554176" expanded="true" signature="10631:10738" ph="UPDATE `menu... " />
+            <marker date="1478094554176" expanded="true" signature="10883:10901" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="11000:11329" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11035:11095" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11134:11196" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11252:11314" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11433:11491" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="11767:11835" ph="SELECT `name... customer" />
+            <marker date="1478094554176" expanded="true" signature="11932:12363" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11971:12064" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12103:12156" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12195:12307" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12235:12241" ph=" " />
+            <marker date="1478094554176" expanded="true" signature="12271:12283" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12346:12363" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12407:12472" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="12576:12643" ph="SELECT `tabl... tables" />
+            <marker date="1478094554176" expanded="true" signature="12836:12980" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12899:12961" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="13107:13178" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13107:13180" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13107:13319" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13453:13497" ph="DELETE FROM " />
+            <marker date="1478094554176" expanded="true" signature="13637:13683" ph="INSERT INTO `tables`... " />
           </folding>
         </state>
       </provider>
@@ -552,64 +555,66 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1478093984451" expanded="true" signature="525:624" ph="INSERT INTO `customer`... " />
-            <marker date="1478093984451" expanded="true" signature="1169:1277" ph="INSERT INTO `reservation`... " />
-            <marker date="1478093984451" expanded="true" signature="1524:1607" ph="INSERT INTO `order_table`... " />
-            <marker date="1478093984451" expanded="true" signature="1807:1879" ph="INSERT INTO `orders`... " />
-            <marker date="1478093984451" expanded="true" signature="2564:2779" ph="SELECT `id` reservation" />
-            <marker date="1478093984451" expanded="true" signature="3160:3209" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="3921:3980" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="4336:4386" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="4815:4950" ph="UPDATE `cust... " />
-            <marker date="1478093984451" expanded="true" signature="5130:5195" ph="SELECT * FRO... orders" />
-            <marker date="1478093984451" expanded="true" signature="5329:5386" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="5888:5897" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="5942:5960" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="6268:6324" ph="INSERT INTO `menu`... " />
-            <marker date="1478093984451" expanded="true" signature="6459:6481" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="6734:6781" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="7204:7268" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="7652:7737" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="7652:7806" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="8129:8202" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="8532:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="8564:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="8604:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9008:9074" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9209:9229" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="9328:9673" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9363:9424" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9463:9539" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9596:9658" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9775:9797" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="9896:10276" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9931:10038" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9961:9973" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10077:10139" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10199:10261" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10444:10517" ph="UPDATE `menu... " />
-            <marker date="1478093984451" expanded="true" signature="10631:10738" ph="UPDATE `menu... " />
-            <marker date="1478093984451" expanded="true" signature="10883:10901" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="11000:11329" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11035:11095" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11134:11196" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11252:11314" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11433:11491" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="11767:11835" ph="SELECT `name... customer" />
-            <marker date="1478093984451" expanded="true" signature="11932:12363" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11971:12064" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12103:12156" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12195:12307" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12235:12241" ph=" " />
-            <marker date="1478093984451" expanded="true" signature="12271:12283" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12346:12363" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12407:12472" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="12576:12643" ph="SELECT `tabl... tables" />
-            <marker date="1478093984451" expanded="true" signature="12836:12980" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12899:12961" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="13107:13318" ph="SELECT id, n... customer" />
-            <marker date="1478093984451" expanded="true" signature="13513:13557" ph="DELETE FROM " />
-            <marker date="1478093984451" expanded="true" signature="13697:13743" ph="INSERT INTO `tables`... " />
+            <marker date="1478094554176" expanded="true" signature="525:624" ph="INSERT INTO `customer`... " />
+            <marker date="1478094554176" expanded="true" signature="1169:1277" ph="INSERT INTO `reservation`... " />
+            <marker date="1478094554176" expanded="true" signature="1524:1607" ph="INSERT INTO `order_table`... " />
+            <marker date="1478094554176" expanded="true" signature="1807:1879" ph="INSERT INTO `orders`... " />
+            <marker date="1478094554176" expanded="true" signature="2564:2779" ph="SELECT `id` reservation" />
+            <marker date="1478094554176" expanded="true" signature="3160:3209" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="3921:3980" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="4336:4386" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="4815:4950" ph="UPDATE `cust... " />
+            <marker date="1478094554176" expanded="true" signature="5130:5195" ph="SELECT * FRO... orders" />
+            <marker date="1478094554176" expanded="true" signature="5329:5386" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="5888:5897" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="5942:5960" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="6268:6324" ph="INSERT INTO `menu`... " />
+            <marker date="1478094554176" expanded="true" signature="6459:6481" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="6734:6781" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="7204:7268" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="7652:7737" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="7652:7806" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="8129:8202" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="8532:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="8564:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="8604:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9008:9074" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9209:9229" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="9328:9673" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9363:9424" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9463:9539" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9596:9658" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9775:9797" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="9896:10276" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9931:10038" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9961:9973" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10077:10139" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10199:10261" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10444:10517" ph="UPDATE `menu... " />
+            <marker date="1478094554176" expanded="true" signature="10631:10738" ph="UPDATE `menu... " />
+            <marker date="1478094554176" expanded="true" signature="10883:10901" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="11000:11329" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11035:11095" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11134:11196" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11252:11314" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11433:11491" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="11767:11835" ph="SELECT `name... customer" />
+            <marker date="1478094554176" expanded="true" signature="11932:12363" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11971:12064" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12103:12156" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12195:12307" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12235:12241" ph=" " />
+            <marker date="1478094554176" expanded="true" signature="12271:12283" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12346:12363" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12407:12472" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="12576:12643" ph="SELECT `tabl... tables" />
+            <marker date="1478094554176" expanded="true" signature="12836:12980" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12899:12961" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="13107:13178" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13107:13180" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13107:13319" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13453:13497" ph="DELETE FROM " />
+            <marker date="1478094554176" expanded="true" signature="13637:13683" ph="INSERT INTO `tables`... " />
           </folding>
         </state>
       </provider>
@@ -664,17 +669,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit_menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1477482751527" expanded="true" signature="712:742" ph="SELECT * FRO... menu" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit_reservation.php">
+    <entry file="file://$PROJECT_DIR$/table_settings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -682,7 +677,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/menus.php">
+    <entry file="file://$PROJECT_DIR$/reservations.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -701,7 +696,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reservations.php">
+    <entry file="file://$PROJECT_DIR$/edit_menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1477482751527" expanded="true" signature="712:742" ph="SELECT * FRO... menu" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit_reservation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -709,85 +714,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/table_settings.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="242">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8624">
-          <caret line="392" column="21" selection-start-line="392" selection-start-column="21" selection-end-line="392" selection-end-column="21" />
+        <state relative-caret-position="93">
+          <caret line="367" column="35" selection-start-line="367" selection-start-column="35" selection-end-line="367" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/menus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="203" column="51" selection-start-line="203" selection-start-column="51" selection-end-line="203" selection-end-column="51" />
+        <state relative-caret-position="379">
+          <caret line="388" column="45" selection-start-line="388" selection-start-column="45" selection-end-line="388" selection-end-column="45" />
           <folding>
-            <marker date="1478093984451" expanded="true" signature="525:624" ph="INSERT INTO `customer`... " />
-            <marker date="1478093984451" expanded="true" signature="1169:1277" ph="INSERT INTO `reservation`... " />
-            <marker date="1478093984451" expanded="true" signature="1524:1607" ph="INSERT INTO `order_table`... " />
-            <marker date="1478093984451" expanded="true" signature="1807:1879" ph="INSERT INTO `orders`... " />
-            <marker date="1478093984451" expanded="true" signature="2564:2779" ph="SELECT `id` reservation" />
-            <marker date="1478093984451" expanded="true" signature="3160:3209" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="3921:3980" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="4336:4386" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="4815:4950" ph="UPDATE `cust... " />
-            <marker date="1478093984451" expanded="true" signature="5130:5195" ph="SELECT * FRO... orders" />
-            <marker date="1478093984451" expanded="true" signature="5329:5386" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="5888:5897" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="5942:5960" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="6268:6324" ph="INSERT INTO `menu`... " />
-            <marker date="1478093984451" expanded="true" signature="6459:6481" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="6734:6781" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="7204:7268" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="7652:7737" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="7652:7806" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="8129:8202" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="8532:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="8564:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="8604:8688" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9008:9074" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9209:9229" ph="SELECT * FRO... tables" />
-            <marker date="1478093984451" expanded="true" signature="9328:9673" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9363:9424" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9463:9539" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9596:9658" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9775:9797" ph="SELECT * FRO... customer" />
-            <marker date="1478093984451" expanded="true" signature="9896:10276" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9931:10038" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="9961:9973" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10077:10139" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10199:10261" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="10444:10517" ph="UPDATE `menu... " />
-            <marker date="1478093984451" expanded="true" signature="10631:10738" ph="UPDATE `menu... " />
-            <marker date="1478093984451" expanded="true" signature="10883:10901" ph="SELECT * FRO... menu" />
-            <marker date="1478093984451" expanded="true" signature="11000:11329" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11035:11095" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11134:11196" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11252:11314" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11433:11491" ph="SELECT * FRO... reservation" />
-            <marker date="1478093984451" expanded="true" signature="11767:11835" ph="SELECT `name... customer" />
-            <marker date="1478093984451" expanded="true" signature="11932:12363" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="11971:12064" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12103:12156" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12195:12307" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12235:12241" ph=" " />
-            <marker date="1478093984451" expanded="true" signature="12271:12283" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12346:12363" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12407:12472" ph="SELECT * FRO... order_table" />
-            <marker date="1478093984451" expanded="true" signature="12576:12643" ph="SELECT `tabl... tables" />
-            <marker date="1478093984451" expanded="true" signature="12836:12980" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="12899:12961" ph="..." />
-            <marker date="1478093984451" expanded="true" signature="13107:13318" ph="SELECT id, n... customer" />
-            <marker date="1478093984451" expanded="true" signature="13513:13557" ph="DELETE FROM " />
-            <marker date="1478093984451" expanded="true" signature="13697:13743" ph="INSERT INTO `tables`... " />
+            <marker date="1478094554176" expanded="true" signature="525:624" ph="INSERT INTO `customer`... " />
+            <marker date="1478094554176" expanded="true" signature="1169:1277" ph="INSERT INTO `reservation`... " />
+            <marker date="1478094554176" expanded="true" signature="1524:1607" ph="INSERT INTO `order_table`... " />
+            <marker date="1478094554176" expanded="true" signature="1807:1879" ph="INSERT INTO `orders`... " />
+            <marker date="1478094554176" expanded="true" signature="2564:2779" ph="SELECT `id` reservation" />
+            <marker date="1478094554176" expanded="true" signature="3160:3209" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="3921:3980" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="4336:4386" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="4815:4950" ph="UPDATE `cust... " />
+            <marker date="1478094554176" expanded="true" signature="5130:5195" ph="SELECT * FRO... orders" />
+            <marker date="1478094554176" expanded="true" signature="5329:5386" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="5888:5897" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="5942:5960" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="6268:6324" ph="INSERT INTO `menu`... " />
+            <marker date="1478094554176" expanded="true" signature="6459:6481" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="6734:6781" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="7204:7268" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="7652:7737" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="7652:7806" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="8129:8202" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="8532:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="8564:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="8604:8688" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9008:9074" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9209:9229" ph="SELECT * FRO... tables" />
+            <marker date="1478094554176" expanded="true" signature="9328:9673" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9363:9424" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9463:9539" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9596:9658" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9775:9797" ph="SELECT * FRO... customer" />
+            <marker date="1478094554176" expanded="true" signature="9896:10276" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9931:10038" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="9961:9973" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10077:10139" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10199:10261" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="10444:10517" ph="UPDATE `menu... " />
+            <marker date="1478094554176" expanded="true" signature="10631:10738" ph="UPDATE `menu... " />
+            <marker date="1478094554176" expanded="true" signature="10883:10901" ph="SELECT * FRO... menu" />
+            <marker date="1478094554176" expanded="true" signature="11000:11329" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11035:11095" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11134:11196" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11252:11314" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11433:11491" ph="SELECT * FRO... reservation" />
+            <marker date="1478094554176" expanded="true" signature="11767:11835" ph="SELECT `name... customer" />
+            <marker date="1478094554176" expanded="true" signature="11932:12363" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="11971:12064" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12103:12156" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12195:12307" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12235:12241" ph=" " />
+            <marker date="1478094554176" expanded="true" signature="12271:12283" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12346:12363" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12407:12472" ph="SELECT * FRO... order_table" />
+            <marker date="1478094554176" expanded="true" signature="12576:12643" ph="SELECT `tabl... tables" />
+            <marker date="1478094554176" expanded="true" signature="12836:12980" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="12899:12961" ph="..." />
+            <marker date="1478094554176" expanded="true" signature="13107:13178" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13107:13180" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13107:13319" ph="SELECT id, n... customer" />
+            <marker date="1478094554176" expanded="true" signature="13453:13497" ph="DELETE FROM " />
+            <marker date="1478094554176" expanded="true" signature="13637:13683" ph="INSERT INTO `tables`... " />
           </folding>
         </state>
       </provider>

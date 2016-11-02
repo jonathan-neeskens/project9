@@ -380,7 +380,7 @@ select.invisible{
 
 .popup{
     display: none;
-    text-align: left!important;
+    text-align: center;
     padding: 35px;
     z-index: 200;
     float: left;

@@ -385,8 +385,8 @@ function export_customers()
 {
     global $link;
 
-    $export_query = mysqli_query($link, "SELECT id, name, adress, city, mail, phone FROM customer INTO OUTFILE 'C:/Users/Jonathan/Downloads/project9_csv/customers.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n'");
-    echo "<a href = 'file:///C:\Users\Jonathan\Downloads\project9_csv\customers.csv'> Bestand inzien </a>";
+    $export_query = mysqli_query($link, "SELECT id, name, adress, city, mail, phone FROM customer INTO OUTFILE 'C:/xampp/htdocs/Project9/project9/exports/customers.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n'");
+    header('Location: exports/customers.csv');
 }
 
 
