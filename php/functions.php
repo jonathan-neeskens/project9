@@ -125,6 +125,19 @@ function change_user($id, $name, $adress, $city, $mail, $phone){
     header("Location: customers.php?change=success");
 }
 
+function change_table($function, $id, $table_nr){
+    global $link;
+    if ($function == 'delete'){
+        $query = mysqli_query($link, "DELETE FROM `tables` WHERE `id` = '$id'");
+        header("Location: table_settings.php?change=success");
+    }
+
+    else{
+        $query = mysqli_query($link, "UPDATE `tables` SET `table_nr` = '$table_nr'");
+        header("Location: table_settings.php?change=success");
+    }
+}
+
 function get_receipt($reservation_id){
     global $link;
 
@@ -185,7 +198,7 @@ function select_customer(){
 
 function table_list(){
     global $link;
-    $query1 = mysqli_query($link, "SELECT * FROM tables WHERE `availability` = '1'");
+    $query1 = mysqli_query($link, "SELECT * FROM tables WHERE `availability` = '1' ORDER BY `table_nr` ASC");
     $time_obj = new DateTime();
 
     //Formatteer het datetime object naar een string
@@ -251,7 +264,7 @@ function table_list_2(){
     global $link;
     $img = 'background-image: url("img/table.png")';
 
-    $query1 = mysqli_query($link, "SELECT * FROM tables");
+    $query1 = mysqli_query($link, "SELECT * FROM tables ORDER BY `table_nr` ASC");
 
     while($row1 = mysqli_fetch_assoc($query1)){
 
@@ -417,9 +430,7 @@ function export_customers()
     global $link;
 
     $export_query = mysqli_query($link, "SELECT id, name, adress, city, mail, phone FROM customer INTO OUTFILE 'C:/xampp/htdocs/Project9/project9/exports/customers.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n'");
-
-    echo "SELECT id, name, adress, city, mail, phone FROM customer INTO OUTFILE 'C:/xampp/htdocs/Project9/project9/exports/customers.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n'";
-    //header('Location: exports/customers.csv');
+    header('Location: exports/customers.csv');
 }
 
 
