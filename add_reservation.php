@@ -4,7 +4,7 @@
 <div class="canvas bit-90">
 
     <div class="innerCanvas">
-        <a href="reservations.php"> <i class="fa fa-arrow-left fa-3x"></i></a>
+        <a href="reservations.php?view=today"> <i class="fa fa-arrow-left fa-3x"></i></a>
         <a href="#"> <i class="fa fa-floppy-o fa-3x"></i> </a>
         <div class="inside_innerCanvas">
             <h2> 1. Voer tijd in. </h2>

@@ -1,4 +1,4 @@
-T<?php include "includes/head.php" ?>
+<?php include "includes/head.php" ?>
 <body>
 <?php include "includes/menu.php" ?>
 <div class="canvas bit-90">

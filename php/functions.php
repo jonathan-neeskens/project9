@@ -198,7 +198,8 @@ function table_list(){
         $query2 = mysqli_query($link, $query_string);
         $row2 = mysqli_fetch_assoc($query2);
         if (count($row2) == '0'){
-            echo "Geen reserveringen";
+            $activity = false;
+            $next_customer = "<p>Geen reserveringen</p>";
         }
 
         else {
@@ -243,88 +244,12 @@ function table_list(){
             </div>
         </div>
         ";
-
     }
-
-
-
-
-    /*
-    global $link;
-    $query1 = mysqli_query($link, "SELECT * FROM tables WHERE `availability` = '1'");
-
-    $time_obj = new DateTime();
-
-    //Formatteer het datetime object naar een string
-    $time = date_format($time_obj, 'Y-m-d H:i:s');
-
-
-    //$query = mysqli_query($link, "SELECT * ");
-
-    //Stap 1: Select * FROM reservations WHERE availability = '1' AND `reservation_start` <= '$time' AND  `reservation_end` >= '$time';
-
-
-    while($row1 = mysqli_fetch_assoc($query1)) {
-        $next_query = mysqli_query($link, "SELECT * FROM `order_table` WHERE `table_id` = '".$row1['id']."'");
-
-        $next_assoc = mysqli_fetch_assoc($next_query);
-
-        if(count($next_assoc) == 0){
-            //Geen reserveringen vandaag voor deze tafel
-            $next_customer = "<p>Geen reserveringen VANDAAG</p>";
-            $activity = false;
-        }
-
-        else{
-            //Check of er reserveringen zijn op dit moment
-            $next_customer_query = mysqli_query($link, "SELECT * FROM reservation WHERE `id` = '$next_assoc[reservation_id]' AND active = '1' AND `reservation_start` <= '$time' AND  `reservation_end` >= '$time'");
-
-            echo "SELECT * FROM `reservation` WHERE `id` = '$next_assoc[reservation_id]' AND active = '1' AND `reservation_start` <= '$time' AND  `reservation_end` >= '$time'";
-
-            $next_customer_assoc = mysqli_fetch_assoc($next_customer_query);
-
-            if (count($next_customer_assoc) == 0){
-                $activity = false;
-                $next_customer = "<p>Geen reserveringen OP DIT MOMENT</p>";
-            }
-
-            else{
-                $next_customer_query2 = mysqli_query($link, "SELECT * FROM `customer` WHERE `id` = '$next_customer_assoc[customer_id]'");
-                $next_customer_assoc2 = mysqli_fetch_assoc($next_customer_query2);
-                $next_customer = "<p>".$next_customer_assoc2['name']. "<br><u>".$next_customer_assoc['capacity']." personen</u></p>";
-                $activity = true;
-            }
-
-        }
-
-        echo "
-        <div class='table_wrapper'>
-            <div class='table'>
-                <div class='table-top'>
-                    <h1> Tafel " . $row1['table_nr'] . " </h1>
-                    ";
-        if ($activity == true) {
-            echo "
-            <a class='printbutton' href='index.php?receipt_id=" . $next_assoc['reservation_id'] . "'>
-                <i class='fa fa-print'></i>
-            </a>
-        ";
-        }
-
-        echo "
-                </div>
-                <div class='table-bottom'>
-                        ".$next_customer."
-                </div>
-            </div>
-        </div>
-        ";
-    }
-    */
 }
 
 function table_list_2(){
     global $link;
+    $img = 'background-image: url("img/table.png")';
 
     $query1 = mysqli_query($link, "SELECT * FROM tables");
 
@@ -332,8 +257,7 @@ function table_list_2(){
 
         echo "
         <div class='list_item'>
-            <div class='user_pic'>
-                <img src='img/table.png'>
+            <div class='user_pic' style='".$img."; background-color: #5d4037'>
             </div>
             <div class='list-section'>
                 <h3> Tafel " .$row1['table_nr']. " </h3>
@@ -352,11 +276,11 @@ function customer_list(){
     $query1 = mysqli_query($link, "SELECT * FROM customer");
 
     while($row1 = mysqli_fetch_assoc($query1)){
-
+        $img = 'background-image: url("img/customer.png")';
+        $color = 'background-color: '.$row1['app_color'];
         echo "
         <div class='list_item'>
-            <div class='user_pic'>
-                <img style='background: ".$row1['app_color']."' src='img/customer.png'>
+            <div class='user_pic' style='$img; $color'> 
             </div>
             <div class='list-section'>
             <h3> " .$row1['name']. " </h3>
@@ -392,11 +316,10 @@ function menu_list(){
     $query1 = mysqli_query($link, "SELECT * FROM menu");
 
     while($row1 = mysqli_fetch_assoc($query1)){
-
+    $img = 'background-image: url("img/'.$row1['app_image'].'")';
         echo "
         <div class='list_item'>
-            <div class='user_pic'>
-                <img src='img/menu.png'>
+            <div class='user_pic' style='".$img."')'>
             </div>
             <div class='list-section'>
             <h3> " .$row1['name']. " </h3>
@@ -476,6 +399,7 @@ function reservation_list($view){
             echo "<span> ".$table['table_nr']." </span>";
         }
 
+        $img = '';
         echo "
             </div>
             <div class='section'>
@@ -493,7 +417,9 @@ function export_customers()
     global $link;
 
     $export_query = mysqli_query($link, "SELECT id, name, adress, city, mail, phone FROM customer INTO OUTFILE 'C:/xampp/htdocs/Project9/project9/exports/customers.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n'");
-    header('Location: exports/customers.csv');
+
+    echo "SELECT id, name, adress, city, mail, phone FROM customer INTO OUTFILE 'C:/xampp/htdocs/Project9/project9/exports/customers.csv' FIELDS ENCLOSED BY '\"' TERMINATED BY ';' ESCAPED BY '\"' LINES TERMINATED BY '\r\n'";
+    //header('Location: exports/customers.csv');
 }
 
 

@@ -138,7 +138,7 @@ i:hover{
     border-bottom: 1px solid #cfcfcf;
 }
 
-.list_item img{
+.list_item .user_pic{
     height: 100px;
     width: 100px;
     -webkit-border-radius:50%;
@@ -146,6 +146,9 @@ i:hover{
     border-radius:50%;
     margin: 25px;
     float: left;
+
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .list_item h3{
