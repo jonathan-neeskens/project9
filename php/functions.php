@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-setlocale(LC_TIME, 'NL_nl');
+setlocale(LC_ALL, 'nl_NL');
 
 //db-gegevens
 $host = 'localhost';
@@ -186,11 +186,78 @@ function select_customer(){
 function table_list(){
     global $link;
     $query1 = mysqli_query($link, "SELECT * FROM tables WHERE `availability` = '1'");
+    $time_obj = new DateTime();
+
+    //Formatteer het datetime object naar een string
+    $time = date_format($time_obj, 'Y-m-d H:i:s');
+    $activity = false;
+
+    while($row1 = mysqli_fetch_assoc($query1)) {
+        $query_string = "SELECT * FROM `reservation` WHERE `active` = '1' AND `reservation_start` <= '$time' AND  `reservation_end` >= '$time'";
+
+        $query2 = mysqli_query($link, $query_string);
+        $row2 = mysqli_fetch_assoc($query2);
+        if (count($row2) == '0'){
+            echo "Geen reserveringen";
+        }
+
+        else {
+            $query3 = mysqli_query($link, $query_string);
+            while ($row3 = mysqli_fetch_array($query3)) {
+                $query4 = mysqli_query($link, "SELECT * FROM `order_table` WHERE `table_id` = '$row1[id]' AND `reservation_id` = '$row2[id]'");
+                $row4 = mysqli_fetch_assoc($query4);
+                if ($row4){
+                    $activity = true;
+                    $query5 = mysqli_query($link, "SELECT * FROM `customer` WHERE `id` = '$row2[customer_id]'");
+                    $row5 = mysqli_fetch_assoc($query5);
+                    $next_customer = "<p>".$row5['name']." <br> ".$row2['capacity']. " personen";
+                }
+
+                else{
+                    $activity = false;
+                    $next_customer = "<p>Geen reserveringen</p>";
+                }
+
+
+            }
+        }
+
+        echo "
+        <div class='table_wrapper'>
+            <div class='table'>
+                <div class='table-top'>
+                    <h1> Tafel " . $row1['table_nr'] . " </h1>
+                    ";
+        if ($activity == true) {
+            echo "
+            <a class='printbutton' href='index.php?receipt_id=" . $row2['id'] . "'>
+                <i class='fa fa-print'></i>
+            </a>
+        ";
+        }
+            echo "
+                </div>
+                <div class='table-bottom'>
+                        ".$next_customer."
+                </div>
+            </div>
+        </div>
+        ";
+
+    }
+
+
+
+
+    /*
+    global $link;
+    $query1 = mysqli_query($link, "SELECT * FROM tables WHERE `availability` = '1'");
 
     $time_obj = new DateTime();
 
     //Formatteer het datetime object naar een string
     $time = date_format($time_obj, 'Y-m-d H:i:s');
+
 
     //$query = mysqli_query($link, "SELECT * ");
 
@@ -204,17 +271,21 @@ function table_list(){
 
         if(count($next_assoc) == 0){
             //Geen reserveringen vandaag voor deze tafel
-            $next_customer = "<p>Geen reserveringen</p>";
+            $next_customer = "<p>Geen reserveringen VANDAAG</p>";
             $activity = false;
         }
 
         else{
             //Check of er reserveringen zijn op dit moment
             $next_customer_query = mysqli_query($link, "SELECT * FROM reservation WHERE `id` = '$next_assoc[reservation_id]' AND active = '1' AND `reservation_start` <= '$time' AND  `reservation_end` >= '$time'");
+
+            echo "SELECT * FROM `reservation` WHERE `id` = '$next_assoc[reservation_id]' AND active = '1' AND `reservation_start` <= '$time' AND  `reservation_end` >= '$time'";
+
             $next_customer_assoc = mysqli_fetch_assoc($next_customer_query);
+
             if (count($next_customer_assoc) == 0){
                 $activity = false;
-                $next_customer = "<p>Geen reserveringen</p>";
+                $next_customer = "<p>Geen reserveringen OP DIT MOMENT</p>";
             }
 
             else{
@@ -249,6 +320,7 @@ function table_list(){
         </div>
         ";
     }
+    */
 }
 
 function table_list_2(){
@@ -344,7 +416,6 @@ function reservation_list($view){
         $viewdate_obj = new DateTime();
         $viewdate_start = date_format($viewdate_obj, 'Y-m-d 00:00:00');
         $viewdate_end = date_format($viewdate_obj, 'Y-m-d 23:59:59');
-
         $query1 = mysqli_query($link, "SELECT * FROM reservation WHERE `reservation_start` >= '$viewdate_start' AND `reservation_end` <= '$viewdate_end' ORDER BY `reservation_start` ASC");
     }
 
@@ -370,7 +441,7 @@ function reservation_list($view){
         }
 
         elseif ($view == 'week'){
-            $day = $d->format('D');
+            $day = $d->format('a');
             $day .= ", ";
         }
 
